@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=SoftBlock
+comment1.params=x\ y\ z
+comment1.target=SoftBlock(int,\ int,\ int)
+comment10.params=
+comment10.target=boolean\ breakable()
+comment2.params=
+comment2.target=java.lang.String\ getClassName()
+comment3.params=
+comment3.target=java.lang.String\ className()
+comment4.params=
+comment4.target=void\ Destroy()
+comment5.params=
+comment5.target=void\ update()
+comment6.params=
+comment6.target=void\ dropItem()
+comment7.params=screen
+comment7.target=void\ render(JettersR.Screen)
+comment8.params=screen\ scale
+comment8.target=void\ renderScale(JettersR.Screen,\ float)
+comment9.params=
+comment9.target=boolean\ solid()
+numComments=11
