@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Mob
+comment1.params=x\ y\ z
+comment1.target=Mob(int,\ int,\ int)
+comment2.params=xa\ ya
+comment2.target=void\ setDir(double,\ double)
+comment3.params=
+comment3.target=void\ fall()
+comment4.params=
+comment4.target=void\ update()
+comment5.params=screen
+comment5.target=void\ render(JettersR.Screen)
+numComments=6
