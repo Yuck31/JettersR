@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=PoofParticle
+comment1.params=x\ y\ z\ life
+comment1.target=PoofParticle(int,\ int,\ int,\ int)
+numComments=2
