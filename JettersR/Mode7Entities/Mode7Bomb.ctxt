@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Mode7Bomb
+comment1.params=x\ y\ z
+comment1.target=Mode7Bomb(int,\ int,\ int)
+comment2.params=
+comment2.target=void\ update()
+comment3.params=screen
+comment3.target=void\ render(JettersR.Screen)
+numComments=4

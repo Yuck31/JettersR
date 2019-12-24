@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Mode7PlayerJet
+comment1.params=x\ y\ z\ input\ ui
+comment1.target=Mode7PlayerJet(int,\ int,\ int,\ JettersR.Keyboard,\ JettersR.UI.UIManager)
+comment2.params=
+comment2.target=void\ update()
+comment3.params=
+comment3.target=void\ updateActions()
+comment4.params=x\ y
+comment4.target=void\ throwBomb(int,\ int)
+comment5.params=
+comment5.target=void\ ImMobilize()
+comment6.params=
+comment6.target=void\ Mobilize()
+comment7.params=
+comment7.target=void\ die()
+comment8.params=
+comment8.target=boolean\ isDead()
+comment9.params=screen
+comment9.target=void\ render(JettersR.Screen)
+numComments=10
