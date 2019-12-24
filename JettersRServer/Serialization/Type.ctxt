@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Type
+comment0.text=\n\ Write\ a\ description\ of\ class\ Type\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=type
+comment1.target=int\ getSize(byte)
+numComments=2
