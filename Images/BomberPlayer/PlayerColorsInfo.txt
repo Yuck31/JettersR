@@ -1,0 +1,81 @@
+These sprites are essentially "Bomberman
+sucked of color".
+
+The colors in these sprites can be replaced
+by the game's code to potentially allow
+players to customize their character.
+
+Here are the colors in the sprites
+themselves[ordered from darkest to
+brightest]:
+
+Face:
+(0xFF)FFD9B0
+
+Hands:
+(0xFF)A0A0A0, (0xFF)B8B8B8, (0xFF)CECECE
+
+Feet & Headball:
+(0xFF)101010, (0xFF)3f3f3f , (0xFF)565656,
+(0xFF)616161, (0xFF)727272, (0xFF)7e7e7e
+
+Head, Arms, & Legs:
+(0xFF)000001, (0xFF)1a1a1a
+
+Torso:
+(0xFF)2B2B2B
+
+
+
+In Total:
+(0xFF)000001, (0xFF)101010, (0xFF)FFD9B0,
+(0xFF)1A1A1A, (0xFF)2B2B2B, (0xFF)3f3f3f,
+(0xFF)565656, (0xFF)616161, (0xFF)727272,
+(0xFF)7E7E7E, (0xFF)A0A0A0, (0xFF)B8B8B8,
+(0xFF)CECECE
+
+
+Here's how colors are decided...
+
+Face: Should be any color that looks like
+skin.
+
+Torso: This is its own color.
+
+Head, Arms, & Legs: These share each
+other's colors. The darker color is
+determined by the brighter color(input)
+- 35 reds, 35 greens, and 35 blues. The
+code will prevent color overflow and
+also limit color input to allow the
+sprite to maintain its expected qualities.
+
+Hands: These are decided in a similar
+manner to Head, Arms, & Legs. Just with
+more colors to it.
+
+Color 1 = input;
+Color 2 = Color 1 - 28 Reds, Greens, and Blues;
+Color 3 = Color 2 - 30 Reds, Greens, and Blues;
+
+Feet & Headball, and Hands: These are
+decided in the same manner as Hands.
+
+Color 1 = input;
+Color 2 = Color 1 - 28 Reds, Greens, and Blues;
+Color 3 = Color 2 - 30 Reds, Greens, and Blues;
+Color 4 = Color 3 - 42 Reds, Greens, and Blues;
+Color 5 = Color 4 - 28 Reds, Greens, and Blues;
+Color 6 = Color 5 - 28 Reds, Greens, and Blues;
+(Ensured to not have color overflow)
+
+
+What the input should be:
+
+The input should be an Integer array with
+Hexadecimal color values in this order:
+
+int[] colors = new int[];
+[Face, Torso, Brightest Head Color, Brightest Hand Color, Brightest Headball Color]
+
+ex(White Bomber):[0xFFeec395, 0xFF3f3584, 0xFFffffff, 0xFFeb86b5, 0xFFeb86b5]
