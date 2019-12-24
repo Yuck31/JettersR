@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=PressureBlock
+comment1.params=x\ y\ z
+comment1.target=PressureBlock(int,\ int,\ int)
+comment2.params=
+comment2.target=java.lang.String\ className()
+comment3.params=
+comment3.target=void\ update()
+comment4.params=
+comment4.target=void\ checkCollisions()
+comment5.params=
+comment5.target=boolean\ hazard()
+comment6.params=
+comment6.target=boolean\ solid()
+comment7.params=
+comment7.target=void\ setSprite()
+comment8.params=screen
+comment8.target=void\ render(JettersR.Screen)
+comment9.params=screen\ scale
+comment9.target=void\ renderScale(JettersR.Screen,\ float)
+numComments=10

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=DangerousBombExplosion
+comment1.params=x\ y\ z\ dirNum\ fires\ delay
+comment1.target=DangerousBombExplosion(int,\ int,\ int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=void\ createFire()
+numComments=3

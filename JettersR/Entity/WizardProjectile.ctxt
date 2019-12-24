@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=WizardProjectile
+comment1.params=x\ y\ z\ dir
+comment1.target=WizardProjectile(int,\ int,\ int,\ double)
+comment2.params=
+comment2.target=void\ update()
+comment3.params=
+comment3.target=void\ move()
+comment4.params=
+comment4.target=double\ distance()
+comment5.params=screen
+comment5.target=void\ render(JettersR.Screen)
+numComments=6

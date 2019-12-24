@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=ClusterBomb
+comment1.params=x\ y\ z\ fires\ remote\ player\ direction
+comment1.target=ClusterBomb(int,\ int,\ int,\ int,\ boolean,\ Mob.Player,\ int)
+comment10.params=
+comment10.target=void\ Destroy()
+comment11.params=screen
+comment11.target=void\ render(JettersR.Screen)
+comment12.params=screen\ scale
+comment12.target=void\ renderScale(JettersR.Screen,\ float)
+comment2.params=x\ y\ z\ fires\ remote\ player\ dirX\ dirY\ forceMulti\ direction\ hopTime
+comment2.target=ClusterBomb(int,\ int,\ int,\ int,\ boolean,\ Mob.Player,\ int,\ int,\ int,\ int,\ int)
+comment3.params=x\ y\ z\ fires\ remote\ player\ player2\ dirX\ dirY\ direction
+comment3.target=ClusterBomb(int,\ int,\ int,\ int,\ boolean,\ Mob.Player,\ Mob.Player,\ int,\ int,\ int)
+comment4.params=xa\ ya
+comment4.target=void\ updateVelocity(int,\ int)
+comment5.params=
+comment5.target=void\ update()
+comment6.params=
+comment6.target=void\ loop()
+comment7.params=
+comment7.target=void\ Detonate()
+comment8.params=dirX\ dirY\ throwMulti
+comment8.target=void\ Throw(int,\ int,\ int)
+comment9.params=
+comment9.target=boolean\ solid()
+numComments=13

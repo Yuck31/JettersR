@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=PierceBombExplosion
+comment1.params=x\ y\ z\ dirNum\ fires\ delay
+comment1.target=PierceBombExplosion(int,\ int,\ int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=void\ createFire()
+numComments=3

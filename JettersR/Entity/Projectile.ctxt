@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Projectile
+comment1.params=x\ y\ z\ dir
+comment1.target=Projectile(int,\ int,\ int,\ double)
+comment2.params=x\ y\ z
+comment2.target=Projectile(int,\ int,\ int)
+comment3.params=
+comment3.target=java.lang.String\ getClassName()
+comment4.params=
+comment4.target=java.lang.String\ className()
+comment5.params=
+comment5.target=JettersR.Sprite\ getSprite()
+comment6.params=
+comment6.target=int\ getSpriteSize()
+comment7.params=
+comment7.target=boolean\ solid()
+comment8.params=
+comment8.target=boolean\ breakable()
+comment9.params=
+comment9.target=boolean\ hazard()
+numComments=10
