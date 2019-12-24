@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=SpriteSheet
+comment1.params=sheet\ x\ y\ width\ height\ spriteSize
+comment1.target=SpriteSheet(SpriteSheet,\ int,\ int,\ int,\ int,\ int)
+comment2.params=sheet\ x\ y\ width\ height\ spriteWidth\ spriteHeight
+comment2.target=SpriteSheet(SpriteSheet,\ int,\ int,\ int,\ int,\ int,\ int)
+comment3.params=path\ size
+comment3.target=SpriteSheet(java.lang.String,\ int)
+comment4.params=path\ width\ height
+comment4.target=SpriteSheet(java.lang.String,\ int,\ int)
+comment5.params=
+comment5.target=Sprite[]\ getSprites()
+comment6.params=
+comment6.target=int\ getWidth()
+comment7.params=
+comment7.target=int\ getHeight()
+comment8.params=
+comment8.target=int[]\ getPixels()
+comment9.params=
+comment9.target=void\ load()
+numComments=10

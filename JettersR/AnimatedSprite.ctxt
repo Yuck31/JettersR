@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=AnimatedSprite
+comment0.text=\n\ This\ is\ the\ class\ that\ manages\ animations.\n\ Animations\ in\ the\ game\ are\ simply\ arrays\ of\ sprites,\ flipped\ through\ to\ make\ in-game\ animations.\n\ \n\ author\:\ Luke\ Sullivan\n\ Last\ Edit\:\ 9/21/2019\n
+comment1.params=sheet\ width\ height\ length\ rate
+comment1.target=AnimatedSprite(SpriteSheet,\ int,\ int,\ int,\ float)
+comment2.params=sheet\ width\ height\ length\ rate\ doesLoop
+comment2.target=AnimatedSprite(SpriteSheet,\ int,\ int,\ int,\ float,\ boolean)
+comment3.params=
+comment3.target=void\ update()
+comment4.params=
+comment4.target=void\ updateReverse()
+comment5.params=
+comment5.target=void\ resetAnim()
+comment6.params=
+comment6.target=Sprite\ getSprite()
+comment7.params=rate
+comment7.target=void\ setRate(float)
+numComments=8
