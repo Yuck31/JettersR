@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=UILabel
+comment1.params=position\ text
+comment1.target=UILabel(JettersR.Util.Vector2i,\ java.lang.String)
+comment2.params=position\ sprite
+comment2.target=UILabel(JettersR.Util.Vector2i,\ JettersR.Sprite)
+comment3.params=screen
+comment3.target=void\ render(JettersR.Screen)
+numComments=4

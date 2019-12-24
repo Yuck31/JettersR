@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=UIPanel
+comment1.params=position\ sprite\ translucent
+comment1.target=UIPanel(JettersR.Util.Vector2i,\ JettersR.Sprite,\ boolean)
+comment2.params=component
+comment2.target=void\ addComponent(UIComponent)
+comment3.params=
+comment3.target=void\ update()
+comment4.params=screen
+comment4.target=void\ render(JettersR.Screen)
+numComments=5

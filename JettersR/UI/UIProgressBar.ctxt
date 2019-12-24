@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=UIProgressBar
+comment1.params=position\ size
+comment1.target=UIProgressBar(JettersR.Util.Vector2i,\ JettersR.Util.Vector2i)
+comment2.params=
+comment2.target=void\ update()
+comment3.params=font
+comment3.target=UIComponent\ setFont(JettersR.SpriteSheet)
+comment4.params=text
+comment4.target=UIComponent\ setText(java.lang.String)
+comment5.params=sprite
+comment5.target=UIComponent\ setSprite(JettersR.Sprite)
+comment6.params=screen\ sprite\ reduction
+comment6.target=void\ render(JettersR.Screen,\ JettersR.Sprite,\ int)
+numComments=7
