@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Vector2i
+comment1.params=
+comment1.target=Vector2i()
+comment10.params=y
+comment10.target=Vector2i\ SetY(int)
+comment2.params=vector
+comment2.target=Vector2i(Vector2i)
+comment3.params=x\ y
+comment3.target=Vector2i(int,\ int)
+comment4.params=x\ y
+comment4.target=void\ set(int,\ int)
+comment5.params=
+comment5.target=int\ getX()
+comment6.params=
+comment6.target=int\ getY()
+comment7.params=vector
+comment7.target=Vector2i\ add(Vector2i)
+comment8.params=vector
+comment8.target=Vector2i\ subtract(Vector2i)
+comment9.params=x
+comment9.target=Vector2i\ SetX(int)
+numComments=11
