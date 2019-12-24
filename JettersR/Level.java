@@ -535,7 +535,7 @@ public class Level
             // entities[z].get(i).rendered = false;
             // }
         }
-        screen.drawRect(minX, minY, maxX-minX, maxY-minY, 0x00FFFFFF, true);
+        //screen.drawRect(minX, minY, maxX-minX, maxY-minY, 0x00FFFFFF, true);
     }
 
     public void add(Entity e)
