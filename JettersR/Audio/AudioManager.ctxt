@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=AudioManager
+comment1.params=
+comment1.target=AudioManager()
+comment10.params=o
+comment10.target=OGGPlayer\ oggPlayer(OGGContents)
+comment2.params=
+comment2.target=void\ update()
+comment3.params=a
+comment3.target=void\ add(AudioPlayer)
+comment4.params=a
+comment4.target=void\ add(AudioContents)
+comment5.params=
+comment5.target=void\ remove()
+comment6.params=ogg
+comment6.target=void\ setOGG(OGGPlayer)
+comment7.params=
+comment7.target=void\ playOGG()
+comment8.params=
+comment8.target=void\ stopOGG()
+comment9.params=a
+comment9.target=AudioPlayer\ audioPlayer(AudioContents)
+numComments=11

@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=OGGPlayer
+comment1.params=path
+comment1.target=OGGPlayer(java.lang.String)
+comment10.params=
+comment10.target=boolean\ getPlaying()
+comment11.params=volume
+comment11.target=void\ setVolume(float)
+comment12.params=
+comment12.target=void\ close()
+comment2.params=path\ volume
+comment2.target=OGGPlayer(java.lang.String,\ float)
+comment3.params=path\ loop
+comment3.target=OGGPlayer(java.lang.String,\ boolean)
+comment4.params=path\ volume\ loop
+comment4.target=OGGPlayer(java.lang.String,\ float,\ boolean)
+comment5.params=
+comment5.target=void\ open()
+comment6.params=
+comment6.target=void\ play()
+comment7.params=
+comment7.target=void\ stop()
+comment8.params=
+comment8.target=void\ pause()
+comment9.params=
+comment9.target=void\ resume()
+numComments=13

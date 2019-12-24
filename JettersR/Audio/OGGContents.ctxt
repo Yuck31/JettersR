@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=OGGContents
+comment0.text=\n\ This\ is\ simply\ for\ convience\ reasons\ when\ instantiating\ new\ Music\n\n\ @author\:\ Luke\ Sullivan\n\ @12/8/19\n
+comment1.params=path
+comment1.target=OGGContents(java.lang.String)
+comment2.params=path\ volume
+comment2.target=OGGContents(java.lang.String,\ float)
+comment3.params=path\ loop
+comment3.target=OGGContents(java.lang.String,\ boolean)
+comment4.params=path\ volume\ loop
+comment4.target=OGGContents(java.lang.String,\ float,\ boolean)
+numComments=5
