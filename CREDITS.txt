@@ -1,0 +1,50 @@
+Bomberman(2019) By: Luke Sullivan
+
+=====Credits=====(so far)
+
+Programing:
+
+Luke Sullivan
+
+
+Sprite Design:
+
+Luke Sullivan
+
+
+Music Design:
+
+Luke Sullivan
+
+
+Special Thanks:
+
+The Cherno (Check out his Youtube Channel)
+CodeNMore (...and also his Youtube Channel)
+OneLoneCoder(Special Thanks to him and his "Mode 7" code!)
+Drew Gallindo (Tester)
+Nathan Marsh (Tester)
+Ethan Miller (Tester)
+Sridhar Chinnabhandar (My Programming Teacher)
+Steven Chen (Tester)
+Joshua Falcon (Tester)
+Sean Fulbrigt (Tester)
+Jeremy Williams Jr. "Techedin" (Tester)
+Qwentin (Tester)
+Jonathan Burkett (Tester)
+Aidan (Tester)
+Joshua (Tester)
+Bryce (Tester)
+Jillian Brodie(Tester)
+
+Assets Used:
+
+Sprites: Piskel
+Music: Modbox (a mod of Beepbox), JummBox(also a mod of Beepbox), Beepbox
+Sound Effects: Labchirp, SFXR
+Controller Support: Jamepad
+OGG Support: EasyOgg
+
+The Original Bomberman IP was created by Hudson Soft, currently owned by Konami.
+This project is NOT intended for profit. This is just to show that there are
+people who still care about the Bomberman Franchise.

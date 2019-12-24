@@ -1,0 +1,40 @@
+Distance between floors: 16 pixels(from under bottom pixel of 
+tile, if "wall" is just a resized version of a tile, resize 
+to 17 pixels high and start from second to top pixel of it)
+
+Formula for centering scaled sprites:
+x = x-((sprite.width/2)*scale)
+
+
+Good Level Design:
+-is Fun to Navigate.
+-does not rely on words (to tell a story).
+-tells you what to do, but not how to do it.
+-constantly teaches.
+-is Suprising.
+-Empowers the Player.
+-is Easy, Medium, AND Hard. (Dynamic difficulty)
+-is Efficient.
+-creates Emotion.
+-is Driven by (in-game) Mechanics.
+
+Good Solo Dev Tips:
+-Recieve frequent feedback (concepts, design choices, etc.)
+-Create playable demos to the public (for feedback)
+-Create a method of Source Control
+-Follow Coding Standards (make code efficient, extensible, formatted, diagramed, and commented)
+-Don't make own custom en-... HEY! I'm making my own engine just fine!
+-Make the games art LOOK like a retail release when the time comes (in other words, do your art homework)
+-Create a proper test plan
+-DEDICATE, DEDICATE, DEDICATE to the creation of a game. FINISH IT!
+
+In-Game Skull Diseases
+-Long Fuse Disease - Bombs take 5 seconds to explode.
+-Short Fuse Disease - Bombs take 1 second to explode.
+-Weak Combustion Syndrome - Bombs explode at 1 fire regardless of Fire-Ups.
+-Insufficient Bombs Disease - Player can only place one bomb regardless of Bomb-Ups.
+-Bomb Diarrhea - Player places Bombs uncontrollably whenever possible.
+-Bomb Constapation - Player is unable to place bombs.
+-Foxtrot Syndrome - Player "Foxtrots" between slow and fast speeds.
+-Molasses Slug Syndrome - Player moves really slow.
+-Ludicrous Speed Syndrome - Player moves extremly fast.
