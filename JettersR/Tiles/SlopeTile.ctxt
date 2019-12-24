@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=SlopeTile
+comment1.params=sprite\ yOffset\ dir
+comment1.target=SlopeTile(JettersR.Sprite,\ int,\ Direction)
+comment2.params=
+comment2.target=boolean\ solid()
+comment3.params=
+comment3.target=boolean\ isSlope()
+comment4.params=
+comment4.target=boolean\ isFloor()
+numComments=5

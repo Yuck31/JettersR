@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=InvisableFloorTile
+comment1.params=
+comment1.target=InvisableFloorTile()
+comment2.params=x\ y\ z\ screen
+comment2.target=void\ render(int,\ int,\ int,\ JettersR.Screen)
+comment3.params=x\ y\ z\ scale\ screen
+comment3.target=void\ renderScale(int,\ int,\ int,\ float,\ JettersR.Screen)
+comment4.params=
+comment4.target=boolean\ solid()
+numComments=5

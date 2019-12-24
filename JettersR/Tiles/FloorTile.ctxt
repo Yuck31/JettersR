@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=FloorTile
+comment1.params=sprite\ yOffset
+comment1.target=FloorTile(JettersR.Sprite,\ int)
+comment2.params=
+comment2.target=boolean\ solid()
+numComments=3

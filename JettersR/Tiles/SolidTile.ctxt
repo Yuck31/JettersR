@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=SolidTile
+comment1.params=sprite\ yOffset
+comment1.target=SolidTile(JettersR.Sprite,\ int)
+comment2.params=sprite\ yOffset\ boundsW\ boundsH
+comment2.target=SolidTile(JettersR.Sprite,\ int,\ int,\ int)
+comment3.params=
+comment3.target=boolean\ solid()
+comment4.params=
+comment4.target=boolean\ breakable()
+numComments=5

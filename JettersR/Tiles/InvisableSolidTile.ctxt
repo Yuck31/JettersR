@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=InvisableSolidTile
+comment1.params=boundsW\ boundsH
+comment1.target=InvisableSolidTile(int,\ int)
+comment2.params=x\ y\ screen
+comment2.target=void\ render(int,\ int,\ JettersR.Screen)
+comment3.params=x\ y\ z\ scale\ screen
+comment3.target=void\ renderScale(int,\ int,\ int,\ float,\ JettersR.Screen)
+comment4.params=
+comment4.target=boolean\ solid()
+comment5.params=
+comment5.target=boolean\ breakable()
+numComments=6
