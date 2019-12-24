@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=PowerZoneState
+comment1.params=gsm\ key\ timeMinute\ timeSecond\ playerWins
+comment1.target=PowerZoneState(JettersR.GameStates.GameStateManager,\ JettersR.Keyboard,\ int,\ int,\ byte[])
+comment2.params=
+comment2.target=void\ init()
+comment3.params=
+comment3.target=void\ generateSuddenDeath()
+comment4.params=
+comment4.target=void\ update()
+comment5.params=screen
+comment5.target=void\ render(JettersR.Screen)
+numComments=6

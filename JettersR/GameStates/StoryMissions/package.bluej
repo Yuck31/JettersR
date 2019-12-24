@@ -1,0 +1,27 @@
+#BlueJ package file
+objectbench.height=80
+objectbench.width=378
+package.divider.horizontal=0.6
+package.divider.vertical=0.6741573033707865
+package.editor.height=173
+package.editor.width=272
+package.editor.x=300
+package.editor.y=203
+package.frame.height=364
+package.frame.width=402
+package.numDependencies=0
+package.numTargets=1
+package.showExtends=true
+package.showUses=true
+readme.height=58
+readme.name=@README
+readme.width=47
+readme.x=10
+readme.y=10
+target1.height=50
+target1.name=FirstMissionState
+target1.showInterface=false
+target1.type=ClassTarget
+target1.width=160
+target1.x=10
+target1.y=90

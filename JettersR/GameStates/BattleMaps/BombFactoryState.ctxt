@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=BombFactoryState
+comment1.params=gsm\ key\ timeMinute\ timeSecond\ playerWins
+comment1.target=BombFactoryState(JettersR.GameStates.GameStateManager,\ JettersR.Keyboard,\ int,\ int,\ byte[])
+comment2.params=
+comment2.target=void\ init()
+comment3.params=playerAmount
+comment3.target=void\ generateBlocks(int)
+comment4.params=
+comment4.target=void\ generateSuddenDeath()
+comment5.params=
+comment5.target=void\ update()
+comment6.params=screen
+comment6.target=void\ render(JettersR.Screen)
+numComments=7

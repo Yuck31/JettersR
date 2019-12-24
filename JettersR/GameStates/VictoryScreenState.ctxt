@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=VictoryScreenState
+comment1.params=gsm\ key\ players\ playerWins\ timeMinute\ timeSecond\ gameState
+comment1.target=VictoryScreenState(GameStateManager,\ JettersR.Keyboard,\ JettersR.Entity.Mob.Player[],\ byte[],\ int,\ int,\ int)
+comment2.params=
+comment2.target=void\ init()
+comment3.params=
+comment3.target=void\ update()
+comment4.params=screen
+comment4.target=void\ render(JettersR.Screen)
+numComments=5

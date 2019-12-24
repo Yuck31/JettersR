@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=GameState
+comment1.params=
+comment1.target=void\ init()
+comment2.params=
+comment2.target=void\ endGame()
+comment3.params=
+comment3.target=void\ endBattle()
+comment4.params=
+comment4.target=void\ quitGame()
+comment5.params=
+comment5.target=void\ update()
+comment6.params=screen
+comment6.target=void\ render(JettersR.Screen)
+comment7.params=roundNum
+comment7.target=void\ setRoundNum(int)
+numComments=8

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=WideMapState
+comment1.params=gsm\ key\ timeMinute\ timeSecond\ playerWins
+comment1.target=WideMapState(JettersR.GameStates.GameStateManager,\ JettersR.Keyboard,\ int,\ int,\ byte[])
+comment2.params=
+comment2.target=void\ init()
+comment3.params=
+comment3.target=void\ generateBlocks()
+comment4.params=
+comment4.target=void\ generateSuddenDeath()
+comment5.params=
+comment5.target=void\ update()
+comment6.params=screen
+comment6.target=void\ render(JettersR.Screen)
+numComments=7

@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=BackGround
+comment1.params=sprite\ moveScale
+comment1.target=BackGround(JettersR.Sprite,\ double)
+comment2.params=x\ y
+comment2.target=void\ setWrapPosition(double,\ double)
+comment3.params=x\ y
+comment3.target=void\ setPosition(double,\ double)
+comment4.params=dx\ dy
+comment4.target=void\ setVector(double,\ double)
+comment5.params=
+comment5.target=void\ update()
+comment6.params=screen\ fixed
+comment6.target=void\ render(JettersR.Screen,\ boolean)
+comment7.params=screen\ opacity\ brightness\ fixed
+comment7.target=void\ renderLights(JettersR.Screen,\ float,\ int,\ boolean)
+numComments=8
