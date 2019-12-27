@@ -6,6 +6,8 @@ package JettersR;
  * @12/10/19
  */
 import javax.swing.JFrame;
+import javax.imageio.ImageIO;
+import java.io.*;
 
 public class MultiMain
 {
@@ -17,7 +19,12 @@ public class MultiMain
         game.frame.add(game);//Adds the instance of Game
         game.frame.pack();//Sets size of JFrame to our component
         game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Enables the Program to stop when closed
-
+        try {
+            game.frame.setIconImage(ImageIO.read(new File("ImageIcon.png")));
+        }
+        catch (IOException exc) {
+            exc.printStackTrace();
+        }
         game.frame.setLocationRelativeTo(null);//Center window
         game.frame.setVisible(true);//Make it show something
 
