@@ -18,6 +18,8 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.*;
 import java.awt.image.DataBufferInt;
 
 import java.awt.Color;
@@ -316,7 +318,7 @@ public class Game extends Canvas implements Runnable
 
                 if(blue > 0x000000FF){blue = 0x000000FF;}
                 else if(blue < 0x00000001){blue = 0x00000000;}
-                
+
                 int color = alpha | red | green | blue;//Recombine alpha, red, green, and blue to the new color.
                 pixels[i] = color;//Paste it in the pixel array.
             }
@@ -352,10 +354,16 @@ public class Game extends Canvas implements Runnable
             {
                 g.drawImage(image,0,(getHeight()-((getWidth()/16)*9))/2,getWidth(),(getWidth()/16)*9, null);
             }
-            else//if(getWidth() >= getHeight())
+            else// if(getWidth() >= getHeight())
             {
-                if((getHeight()/9)*16 > getWidth()){g.drawImage(image,0,(getHeight()-((getWidth()/16)*9))/2,getWidth(),(getWidth()/16)*9, null);}
-                else{g.drawImage(image,(getWidth()-((getHeight()/9)*16))/2,0,(getHeight()/9)*16,getHeight(), null);}
+                if((getHeight()/9)*16 > getWidth())
+                {
+                    g.drawImage(image,0,(getHeight()-((getWidth()/16)*9))/2,getWidth(),(getWidth()/16)*9, null);
+                }
+                else
+                {
+                    g.drawImage(image,0,0,getWidth(),getHeight(), null);
+                }
             }
         }
         else{g.drawImage(image,0,0,getWidth(),getHeight(), null);}
@@ -373,13 +381,21 @@ public class Game extends Canvas implements Runnable
     public static void main(String[] args)//The function that starts the game (creates and starts an instance of the game)
     {
         Game game = new Game();//Creates an instance of Game
+        //game.frame.setUndecorated(true);
         game.frame.setResizable(true);//Determines if the window can be stretched (pixels DO scale with the window)
         game.frame.setTitle(Game.TITLE);//Title
         game.frame.add(game);//Adds the instance of Game
         game.frame.pack();//Sets size of JFrame to our component
         game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Enables the Program to stop when closed
-
+        try {
+            game.frame.setIconImage(ImageIO.read(new File("ImageIcon.png")));
+        }
+        catch (IOException exc) {
+            exc.printStackTrace();
+        }
         game.frame.setLocationRelativeTo(null);//Center window
+        //game.frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        //game.frame.setUndecorated(true);
         game.frame.setVisible(true);//Make it show something
 
         game.start();
