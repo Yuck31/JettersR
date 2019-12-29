@@ -17,8 +17,8 @@
 				{
 					"type": "chip",
 					"volume": 0,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "arpeggio",
 					"filterCutoffHz": 250,
@@ -31,8 +31,8 @@
 				{
 					"type": "chip",
 					"volume": 0,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard fade",
 					"chord": "strum",
 					"filterCutoffHz": 250,
@@ -929,8 +929,8 @@
 				{
 					"type": "chip",
 					"volume": 17,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -943,8 +943,8 @@
 				{
 					"type": "chip",
 					"volume": 17,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -3121,8 +3121,8 @@
 				{
 					"type": "chip",
 					"volume": 17,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -3135,8 +3135,8 @@
 				{
 					"type": "chip",
 					"volume": 17,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -5313,8 +5313,8 @@
 				{
 					"type": "chip",
 					"volume": 7,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "harmony",
 					"filterCutoffHz": 250,
@@ -5327,8 +5327,8 @@
 				{
 					"type": "FM",
 					"volume": 0,
+					"pan": 0,
 					"effects": "chorus & reverb",
-					"pan": 50,
 					"preset": 907,
 					"transition": "hard fade",
 					"chord": "harmony",
@@ -6572,8 +6572,8 @@
 				{
 					"type": "FM",
 					"volume": 4,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 2828,
@@ -6610,8 +6610,8 @@
 				{
 					"type": "harmonics",
 					"volume": 0,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"preset": 835,
 					"transition": "soft",
 					"chord": "harmony",
@@ -7973,9 +7973,9 @@
 			"instruments": [
 				{
 					"type": "chip",
-					"volume": 8,
+					"volume": 13,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "harmony",
 					"filterCutoffHz": 2828,
@@ -7988,8 +7988,8 @@
 				{
 					"type": "FM",
 					"volume": 0,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"preset": 387,
 					"transition": "hard fade",
 					"chord": "strum",
@@ -16935,8 +16935,8 @@
 				{
 					"type": "PWM",
 					"volume": 14,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 4000,
@@ -16949,8 +16949,8 @@
 				{
 					"type": "PWM",
 					"volume": 9,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 4000,
@@ -22640,8 +22640,8 @@
 				{
 					"type": "chip",
 					"volume": 11,
+					"pan": 0,
 					"effects": "chorus & reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -22654,8 +22654,8 @@
 				{
 					"type": "PWM",
 					"volume": 7,
+					"pan": 0,
 					"effects": "chorus & reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 4000,
@@ -24248,8 +24248,8 @@
 				{
 					"type": "PWM",
 					"volume": 7,
+					"pan": 0,
 					"effects": "chorus & reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -24262,8 +24262,8 @@
 				{
 					"type": "chip",
 					"volume": 4,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -25548,8 +25548,8 @@
 				{
 					"type": "chip",
 					"volume": 17,
+					"pan": 0,
 					"effects": "chorus & reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -25562,8 +25562,8 @@
 				{
 					"type": "chip",
 					"volume": 12,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 2828,
@@ -27156,8 +27156,8 @@
 				{
 					"type": "harmonics",
 					"volume": 8,
+					"pan": 0,
 					"effects": "chorus & reverb",
-					"pan": 50,
 					"transition": "hard fade",
 					"chord": "harmony",
 					"filterCutoffHz": 2828,
@@ -27199,8 +27199,8 @@
 				{
 					"type": "chip",
 					"volume": 11,
+					"pan": 0,
 					"effects": "chorus & reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "harmony",
 					"filterCutoffHz": 4000,
@@ -28750,8 +28750,8 @@
 				{
 					"type": "PWM",
 					"volume": 9,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "harmony",
 					"filterCutoffHz": 4000,
@@ -28764,8 +28764,8 @@
 				{
 					"type": "PWM",
 					"volume": 13,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "harmony",
 					"filterCutoffHz": 4000,
@@ -31822,8 +31822,8 @@
 				{
 					"type": "chip",
 					"volume": 14,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "arpeggio",
 					"filterCutoffHz": 8000,
@@ -31836,8 +31836,8 @@
 				{
 					"type": "FM",
 					"volume": 0,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"preset": 962,
 					"transition": "hard",
 					"chord": "harmony",
@@ -34350,8 +34350,8 @@
 				{
 					"type": "PWM",
 					"volume": 14,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "harmony",
 					"filterCutoffHz": 4000,
@@ -34364,8 +34364,8 @@
 				{
 					"type": "chip",
 					"volume": 0,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"preset": 68,
 					"transition": "medium fade",
 					"chord": "harmony",
@@ -37433,8 +37433,8 @@
 				{
 					"type": "noise",
 					"volume": 13,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard fade",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -37445,8 +37445,8 @@
 				{
 					"type": "noise",
 					"volume": 8,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard fade",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -38207,8 +38207,8 @@
 				{
 					"type": "spectrum",
 					"volume": 21,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard fade",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -38250,8 +38250,8 @@
 				{
 					"type": "noise",
 					"volume": 11,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard fade",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
@@ -38665,8 +38665,8 @@
 				{
 					"type": "spectrum",
 					"volume": 20,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard fade",
 					"chord": "arpeggio",
 					"filterCutoffHz": 8000,
@@ -38708,8 +38708,8 @@
 				{
 					"type": "spectrum",
 					"volume": 13,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "seamless",
 					"chord": "arpeggio",
 					"filterCutoffHz": 8000,
@@ -38977,8 +38977,8 @@
 				{
 					"type": "drumset",
 					"volume": 10,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"preset": 960,
 					"drums": [
 						{
@@ -39406,8 +39406,8 @@
 				{
 					"type": "spectrum",
 					"volume": 0,
+					"pan": 0,
 					"effects": "reverb",
-					"pan": 50,
 					"transition": "hard",
 					"chord": "harmony",
 					"filterCutoffHz": 8000,
