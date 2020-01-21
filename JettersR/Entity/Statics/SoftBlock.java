@@ -137,7 +137,7 @@ public class SoftBlock extends StaticEntity
             else
             {
                 //Insert Test code here
-                //level.add(new RemoteControl((int)x, (int) y, z));
+                //level.add(new SkullItem((int)x, (int) y, z, Disease.OADS));
             }
             itemDropped = true;
         }

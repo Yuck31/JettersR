@@ -5,7 +5,7 @@ package JettersR.Entity.Mob;
  * It controls functions such as the Player's ability to: Move, Deploy Bombs, Punch Bombs, Pick up and Throw Bombs, Die, etc.
  *
  * author: Luke Sullivan
- * Last Edit: 11/29/2019
+ * Last Edit: 1/19/2020
  */
 
 import java.util.Random;
@@ -66,30 +66,6 @@ public class Player extends Mob
     //Animations for each Player
     public Sprite playerUI = Sprite.player_UI;
     public Sprite[] playerUIBackground = new Sprite[8];
-
-    public AnimatedSprite front = new AnimatedSprite(SpriteSheet.Bomber_FRONT,42,42,16, 2);
-    public AnimatedSprite left = new AnimatedSprite(SpriteSheet.Bomber_LEFT,42,42,16,2);
-    public AnimatedSprite right = new AnimatedSprite(SpriteSheet.Bomber_RIGHT,42,42,16,2);
-    public AnimatedSprite back = new AnimatedSprite(SpriteSheet.Bomber_BACK,42,42,16,2);
-    public AnimatedSprite holdFront = new AnimatedSprite(SpriteSheet.BomberHold_FRONT,42,42,16, 2);
-    public AnimatedSprite holdLeft = new AnimatedSprite(SpriteSheet.BomberHold_LEFT,42,42,16,2);
-    public AnimatedSprite holdRight = new AnimatedSprite(SpriteSheet.BomberHold_RIGHT,42,42,16,2);
-    public AnimatedSprite holdBack = new AnimatedSprite(SpriteSheet.BomberHold_BACK,42,42,16,2);
-    public Sprite bounceFront = Sprite.playerBounce_front;
-    public Sprite bounceLeft = Sprite.playerBounce_left;
-    public Sprite bounceRight = Sprite.playerBounce_right;
-    public Sprite bounceBack = Sprite.playerBounce_back;
-
-    public AnimatedSprite frontIdle = new AnimatedSprite(SpriteSheet.Bomber_FRONTidle,42,42,6, 2);
-    public AnimatedSprite leftIdle = new AnimatedSprite(SpriteSheet.Bomber_LEFTidle,42,42,6,2);
-    public AnimatedSprite rightIdle = new AnimatedSprite(SpriteSheet.Bomber_RIGHTidle,42,42,6,2);
-    public AnimatedSprite backIdle = new AnimatedSprite(SpriteSheet.Bomber_BACKidle,42,42,1,2);
-    public AnimatedSprite holdFrontIdle = new AnimatedSprite(SpriteSheet.BomberHold_FRONTidle,42,42,6, 2);
-    public AnimatedSprite holdLeftIdle = new AnimatedSprite(SpriteSheet.BomberHold_LEFTidle,42,42,6,2);
-    public AnimatedSprite holdRightIdle = new AnimatedSprite(SpriteSheet.BomberHold_RIGHTidle,42,42,6,2);
-    public AnimatedSprite holdBackIdle = new AnimatedSprite(SpriteSheet.BomberHold_BACKidle,42,42,1,2);
-
-    public AnimatedSprite death = new AnimatedSprite(SpriteSheet.Bomber_DEAD,42,42,31,6, false);
 
     public AnimatedSprite rcShootFront = new AnimatedSprite(SpriteSheet.rcShootFront, 90, 70, 5, 2);
     public AnimatedSprite rcJetL0 = new AnimatedSprite(SpriteSheet.rcJetL0, 45, 35, 4, 2);
@@ -166,8 +142,8 @@ public class Player extends Mob
     public boolean remoteControl = false;//Used exclusivly for the Remote Control
     public boolean type_pierceBomb = false;//Used exclusivly for the Pierce Bomb
     public int chargeTimer = 0;//Used exclusivly for the Bomber Shoot(Bead Bomb)
-    public boolean softBlockPass = false;//Used exclusivly for the Soft Block Pass
-    public boolean bombPass = false;//Used exclusivly for the Bomb Pass
+    //public boolean softBlockPass = false;//Used exclusivly for the Soft Block Pass
+    //public boolean bombPass = false;//Used exclusivly for the Bomb Pass
     public int dangerTimer = 180;//Used exclusivly for the Super Power Glove
 
     //UI
@@ -209,6 +185,32 @@ public class Player extends Mob
         bounds.y = 20;
         bounds.width = 21;
         bounds.height = 20;
+
+        //Setting Player Animations
+        front = new AnimatedSprite(SpriteSheet.Bomber_FRONT,42,42,16, 2);
+        left = new AnimatedSprite(SpriteSheet.Bomber_LEFT,42,42,16,2);
+        right = new AnimatedSprite(SpriteSheet.Bomber_RIGHT,42,42,16,2);
+        back = new AnimatedSprite(SpriteSheet.Bomber_BACK,42,42,16,2);
+        holdFront = new AnimatedSprite(SpriteSheet.BomberHold_FRONT,42,42,16, 2);
+        holdLeft = new AnimatedSprite(SpriteSheet.BomberHold_LEFT,42,42,16,2);
+        holdRight = new AnimatedSprite(SpriteSheet.BomberHold_RIGHT,42,42,16,2);
+        holdBack = new AnimatedSprite(SpriteSheet.BomberHold_BACK,42,42,16,2);
+
+        bounceFront = Sprite.playerBounce_front;
+        bounceLeft = Sprite.playerBounce_left;
+        bounceRight = Sprite.playerBounce_right;
+        bounceBack = Sprite.playerBounce_back;
+
+        frontIdle = new AnimatedSprite(SpriteSheet.Bomber_FRONTidle,42,42,6, 2);
+        leftIdle = new AnimatedSprite(SpriteSheet.Bomber_LEFTidle,42,42,6,2);
+        rightIdle = new AnimatedSprite(SpriteSheet.Bomber_RIGHTidle,42,42,6,2);
+        backIdle = new AnimatedSprite(SpriteSheet.Bomber_BACKidle,42,42,1,2);
+        holdFrontIdle = new AnimatedSprite(SpriteSheet.BomberHold_FRONTidle,42,42,6, 2);
+        holdLeftIdle = new AnimatedSprite(SpriteSheet.BomberHold_LEFTidle,42,42,6,2);
+        holdRightIdle = new AnimatedSprite(SpriteSheet.BomberHold_RIGHTidle,42,42,6,2);
+        holdBackIdle = new AnimatedSprite(SpriteSheet.BomberHold_BACKidle,42,42,1,2);
+
+        death = new AnimatedSprite(SpriteSheet.Bomber_DEAD,42,42,31,6, false);
 
         //Setting Player Bomb and Special Types (sprites and booleans)
         bombTypes[0] = Sprite.bomb_Icon;
@@ -457,24 +459,24 @@ public class Player extends Mob
             {
                 //if(slopeCollision(this, dir.NONE, 0, 0, 0, z).isSlope())
                 //{
-                    move(nx,ny);
+                move(nx,ny);
                 //}
                 // else if(!tileCollision(this, dir.NONE, 0, nx, ny, z).solid() || zOffset > 8)
                 // {
-                    // switch(dir)
-                    // {
-                        // case UP: y -= 2;
-                        // break;
+                // switch(dir)
+                // {
+                // case UP: y -= 2;
+                // break;
 
-                        // case DOWN: y += 2;
-                        // break;
+                // case DOWN: y += 2;
+                // break;
 
-                        // case LEFT: x -= 2;
-                        // break;
+                // case LEFT: x -= 2;
+                // break;
 
-                        // case RIGHT: x += 2;
-                        // break;
-                    // }
+                // case RIGHT: x += 2;
+                // break;
+                // }
                 // }
             }
 
@@ -510,7 +512,7 @@ public class Player extends Mob
             && !dead && !bouncing)
             {
                 if(!falling && !slopeCollision(this, dir.NONE, 0, 0, 0, z-1).isSlope())
-                {Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bomberFall));}
+                {Game.am.add(AudioManager.sounds_bomberFall);}
                 //
                 // if(tileCollision(this, dir.LEFT, 0, xa, 0, z).solid() && tileCollision(this, dir.LEFT, 1, xa, 0, z).solid())
                 // {x = ((int)((x + bounds.x) / 32) * 32) - bounds.x;}
@@ -551,7 +553,7 @@ public class Player extends Mob
                     if(entityCollision(0,0,z).solid()
                     || (tileCollision(this, dir.NONE, 0, nx, nx, z-1).solid() && zOffset > 14))
                     {
-                        Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombKick));
+                        Game.am.add(AudioManager.sounds_bombKick);
                         z++;
                         zOffset += 15;
                         nz = 0;
@@ -762,15 +764,6 @@ public class Player extends Mob
 
     public void move(double xa, double ya)
     {
-        Entity[] eCols = entityCollisions(0, 0, z);
-        Entity[] eColsX = entityCollisions(xa, 0, z);
-        Entity[] eColsY = entityCollisions(0, ya, z);
-        Entity e = entityCollision(0, 0, z);
-        Entity eX = entityCollision(xa, 0, z);
-        Entity eY = entityCollision(0, ya, z);
-        boolean eS = collisionType(eCols, CollisionType.SOLID) & !falling;
-        boolean eXS = collisionType(eColsX, CollisionType.SOLID) & !falling;
-        boolean eYS = collisionType(eColsY, CollisionType.SOLID) & !falling;
         if(speed >= 2)//This sets the framerate of the animation higher if the Player's speed value is high enough
         {
             back.setRate(1);
@@ -804,192 +797,7 @@ public class Player extends Mob
             right.setRate(2);
             holdRight.setRate(2);
         }
-
-        Direction hDir = Direction.LEFT;
-        Direction vDir = Direction.UP;
-
-        if(ya != 0)//Vertical
-        {
-            if(ya < 0)
-            {
-                vDir = Direction.UP;
-            }
-            else if(ya > 0)
-            {
-                vDir = Direction.DOWN;
-            }
-            if(!falling || slopeCollision(this, dir.NONE, 0, 0, 0, z).isSlope())
-            {
-                back.update();
-                holdBack.update();
-                front.update();
-                holdFront.update();
-            }
-
-            if((!tileCollision(this, vDir, 0, 0, ya, z).solid() && !tileCollision(this, vDir, 1, 0, ya, z).solid())
-            && (((!slopeCollision(this, vDir, 0, 0, ya, z).isSlope() && !slopeCollision(this, vDir, 1, 0, ya, z).isSlope())
-            || ((slopeCollision(this, vDir, 0, 0, ya, z).dir == Tile.Direction.UP && slopeCollision(this, vDir, 1, 0, ya, z).dir == Tile.Direction.UP)
-            || (slopeCollision(this, vDir, 0, 0, ya, z).dir == Tile.Direction.DOWN && slopeCollision(this, vDir, 1, 0, ya, z).dir == Tile.Direction.DOWN)))
-            || zOffset > 0))
-            {
-                if(!eS && !eYS)//if(player isn't standing on or about to move into a solid entity){move up}
-                {
-                    y += ya;
-                }
-                else if(e.solid() || eY.solid())//otherwise, if(player is standing on or about to walk into an entity)
-                {
-                    if((softBlockPass && (isolatedCollision(eCols, SoftBlock.className()) || isolatedCollision(eColsY, SoftBlock.className())))//if player is in a soft-block and has soft-block pass
-                    || (bombPass && (isolatedCollision(eCols, Bomb.className()) || isolatedCollision(eColsY, Bomb.className())))//or the player is in a bomb and has bomb pass
-                    || e == eY || !eY.solid())
-                    {
-                        y += ya;//MOVE
-                    }
-                }
-            }
-            else if(!falling && !bouncing)
-            {
-                if(tileCollision(this, dir.UP, 0, 0, ya, z).solid() && tileCollision(this, dir.UP, 1, 0, ya, z).solid())
-                {y = ((int)((y + bounds.y)/32) * 32) - bounds.y;}
-                else if(tileCollision(this, dir.DOWN, 0, 0, ya, z).solid() && tileCollision(this, dir.DOWN, 1, 0, ya, z).solid())
-                {y = ((int)(((y + bounds.y + bounds.height) / 32) - 1) * 32) + (bounds.width+2);}
-            }
-            if(xa == 0)
-            {
-                if(((!tileCollision(this, vDir, 0, 0, ya, z).solid() && tileCollision(this, vDir, 1, 0, ya, z).solid())
-                    || (!slopeCollision(this, vDir, 0, 0, ya, z).horizontal && slopeCollision(this, vDir, 1, 0, ya, z).horizontal))
-                || (slopeCollision(this, vDir, 0, 0, ya, z).vertical && !slopeCollision(this, vDir, 1, 0, ya, z).vertical))
-                {
-                    if(((!entityCollision(0, 0, z).solid() && !entityCollision(Math.abs(ya)*-1, 0, z).solid())
-                        || (entityCollision(0, 0, z) == entityCollision(Math.abs(ya)*-1, 0, z)))
-                    || ((isolatedCollision(entityCollisions(0, 0, z), SoftBlock.className()) || isolatedCollision(entityCollisions(Math.abs(ya)*-1, 0, z), SoftBlock.className()))
-                        && softBlockPass))
-                    {
-                        xa = Math.abs(ya)*-1;
-                        //x -= Math.abs(ya);
-                    }
-                }
-                else if(((tileCollision(this, vDir, 0, 0, ya, z).solid() && !tileCollision(this, vDir, 1, 0, ya, z).solid())
-                    || (slopeCollision(this, vDir, 0, 0, ya, z).horizontal && !slopeCollision(this, vDir, 1, 0, ya, z).horizontal))
-                || (!slopeCollision(this, vDir, 0, 0, ya, z).vertical && slopeCollision(this, vDir, 1, 0, ya, z).vertical))
-                {
-                    if((!entityCollision(Math.abs(ya), 0, z).solid() || (entityCollision(0, 0, z) == entityCollision(Math.abs(ya), 0, z)))
-                    || (isolatedCollision(entityCollisions(Math.abs(ya), 0, z), SoftBlock.className()) && softBlockPass))
-                    {
-                        xa = Math.abs(ya);
-                        //x += Math.abs(ya);
-                    }
-                }
-            }
-        }
-
-        if(xa != 0)//Horizontal
-        {
-            if(xa < 0)
-            {
-                hDir = Direction.LEFT;
-            }
-            else if(xa > 0)
-            {
-                hDir = Direction.RIGHT;
-            }
-            if(!falling || slopeCollision(this, dir.NONE, 0, 0, 0, z).isSlope())
-            {
-                left.update();
-                holdLeft.update();
-                right.update();
-                holdRight.update();
-            }
-
-            if((!tileCollision(this, hDir, 0, xa, 0, z).solid() && !tileCollision(this, hDir, 1, xa, 0, z).solid())
-            && (((!slopeCollision(this, hDir, 0, xa, 0, z).isSlope() && !slopeCollision(this, hDir, 1, xa, 0, z).isSlope())
-            || ((slopeCollision(this, hDir, 0, xa, 0, z).dir == Tile.Direction.LEFT && slopeCollision(this, hDir, 1, xa, 0, z).dir == Tile.Direction.LEFT)
-            || (slopeCollision(this, hDir, 0, xa, 0, z).dir == Tile.Direction.RIGHT && slopeCollision(this, hDir, 1, xa, 0, z).dir == Tile.Direction.RIGHT)))
-            || zOffset > 0))
-            {
-                if(!eS && !eXS)//if(player isn't standing on or about to move into a solid entity){move up}
-                {
-                    x += xa;
-                }
-                else if(e.solid() || eX.solid())//otherwise, if(player is standing on or about to walk into an entity)
-                {
-                    if((softBlockPass && (isolatedCollision(eCols, SoftBlock.className()) || isolatedCollision(eColsX, SoftBlock.className())))//if player is in a soft-block and has soft-block pass
-                    || (bombPass && (isolatedCollision(eCols, Bomb.className()) || isolatedCollision(eColsX, Bomb.className())))//or the player is in a bomb and has bomb pass
-                    || e == eX || !eX.solid())
-                    {
-                        x += xa;//MOVE
-                    }
-                }
-            }
-            else if(!falling && !bouncing)
-            {
-                if(tileCollision(this, dir.LEFT, 0, xa, 0, z).solid() && tileCollision(this, dir.LEFT, 1, xa, 0, z).solid())
-                {x = ((int)((x + bounds.x) / 32) * 32) - bounds.x;}
-                else if(tileCollision(this, dir.RIGHT, 0, xa, 0, z).solid() && tileCollision(this, dir.RIGHT, 1, xa, 0, z).solid())
-                {x = ((int)((x + bounds.x + bounds.width) / 32) * 32);}
-            }
-            if(ya == 0)
-            {
-                if(((!tileCollision(this, hDir, 0, xa, 0, z).solid() && tileCollision(this, hDir, 1, xa, 0, z).solid())
-                    || (!slopeCollision(this, hDir, 0, xa, 0, z).vertical && slopeCollision(this, hDir, 1, xa, 0, z).vertical))
-                || (slopeCollision(this, hDir, 0, xa, 0, z).horizontal && !slopeCollision(this, hDir, 1, xa, 0, z).horizontal))
-                {
-                    if(((!entityCollision(0, 0, z).solid() && !entityCollision(0, Math.abs(xa)*-1, z).solid())
-                        || (entityCollision(0, 0, z) == entityCollision(0, Math.abs(xa)*-1, z)))
-                    || ((isolatedCollision(entityCollisions(0, 0, z), SoftBlock.className()) || isolatedCollision(entityCollisions(0, Math.abs(xa)*-1, z), SoftBlock.className()))
-                        && softBlockPass))
-                    {
-                        ya = Math.abs(xa)*-1;
-                        y -= Math.abs(xa);
-                    }
-                }
-                else if(((tileCollision(this, hDir, 0, xa, 0, z).solid() && !tileCollision(this, hDir, 1, xa, 0, z).solid())
-                    || (slopeCollision(this, hDir, 0, xa, 0, z).vertical && !slopeCollision(this, hDir, 1, xa, 0, z).vertical))
-                || (!slopeCollision(this, hDir, 0, xa, 0, z).horizontal && slopeCollision(this, hDir, 1, xa, 0, z).horizontal))
-                {
-                    if((!entityCollision(0, Math.abs(xa), z).solid() || (entityCollision(0, 0, z) == entityCollision(0, Math.abs(xa), z)))
-                    || (isolatedCollision(entityCollisions(0, Math.abs(xa), z), SoftBlock.className()) && softBlockPass))
-                    {
-                        ya = Math.abs(xa);
-                        y += Math.abs(xa);
-                    }
-                }
-            }
-        }
-
-        if(collisionType(eColsX, CollisionType.SOLID))
-        {
-            if(isolatedCollision(eColsX, Bomb.className()) == isolatedCollision(eColsX, SoftBlock.className()) && !softBlockPass)
-            {
-                if(isolatedEntity(eColsX, SoftBlock.className()) != isolatedEntity(eCols, SoftBlock.className()))
-                {
-                    if(xa < 0)
-                    {
-                        x = isolatedEntity(eColsX, SoftBlock.className()).getX()+isolatedEntity(eColsX, SoftBlock.className()).getWidth()-isolatedEntity(eColsX, SoftBlock.className()).bounds.x-bounds.x;
-                    }
-                    if(xa > 0)
-                    {
-                        x = isolatedEntity(eColsX, SoftBlock.className()).getX()+isolatedEntity(eColsX, SoftBlock.className()).bounds.x-bounds.width-bounds.x;
-                    }
-                }
-            }
-        }
-        if(collisionType(eColsY, CollisionType.SOLID))
-        {
-            if(isolatedCollision(eColsY, Bomb.className()) == isolatedCollision(eColsY, SoftBlock.className()) && !softBlockPass)
-            {
-                if(isolatedEntity(eColsY, SoftBlock.className()) != isolatedEntity(eCols, SoftBlock.className()) || ya < 0)
-                {
-                    if(ya < 0)
-                    {
-                        y = isolatedEntity(eColsY, SoftBlock.className()).getY()+isolatedEntity(eColsY, SoftBlock.className()).getHeight()-isolatedEntity(eColsY, SoftBlock.className()).bounds.y-bounds.y;
-                    }
-                    if(ya > 0)
-                    {
-                        y = isolatedEntity(eColsY, SoftBlock.className()).getY()+isolatedEntity(eColsY, SoftBlock.className()).bounds.y-bounds.height-bounds.y;
-                    }
-                }
-            }
-        }
+        super.move(xa, ya);
     }
 
     public void updateActions()//This manages MOST actions the Player can do via Button inputs
@@ -1033,7 +841,7 @@ public class Player extends Mob
                 {
                     if(heldBomb instanceof PowerBomb){heldBomb.getPlayer().haveBombType[heldBomb.getPlayer().type_powerBomb] = true;}//In case the Player holds another player's bomb
                     if(heldBomb instanceof ClusterBomb){heldBomb.getPlayer().haveBombType[heldBomb.getPlayer().type_clusterBomb] = true;}
-                    Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_poof));
+                    Game.am.add(AudioManager.sounds_poof);
                     Bomb heldBomb2 = new DangerousBomb((int)x,(int)y,z,fires, remoteControl, heldBomb.player, true);
                     heldBomb.remove();
                     heldBomb = heldBomb2;
@@ -1045,7 +853,7 @@ public class Player extends Mob
             }
             if(!input.bomb[playerNum] && playerState == playerState.HOLDING && !dead)//If the Player is holding a Bomb and the Player lets go of the Bomb button.
             {
-                Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombThrow));
+                Game.am.add(AudioManager.sounds_bombThrow);
                 heldBomb.Throw(dirX, dirY, 4);//"Throw" it
                 playerState = playerState.NEUTRAL;//Set PlayerState to neutral
                 dangerTimer = 180;//Reset Danger Timer
@@ -1123,7 +931,7 @@ public class Player extends Mob
         int bombY = (((y+26)/32)*32)-3;
         if((entityCollision(0, 0, z) == null || !entityCollision(0, 0, z).solid()) && deployableBombs < bombs)//If the Player isn't in a Solid/Breakable-Solid entity(Bomb)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombPlace));
+            Game.am.add(AudioManager.sounds_bombPlace);
 
             Bomb p = new Bomb(bombX,bombY,this.z, fires, remoteControl, this);//Make a new Bomb on BombX and BombY
             if(type_pierceBomb)
@@ -1177,7 +985,7 @@ public class Player extends Mob
         {
             shotBomb = new PierceBomb(bombX, bombY, z, curFires, isRemote, curPlayer, this, dirX, dirY);
         }
-        Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bomberShoot1));
+        Game.am.add(AudioManager.sounds_bomberShoot1);
         level.add(shotBomb);
     }
 
@@ -1219,13 +1027,13 @@ public class Player extends Mob
             break;
         }
 
-        Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombKick));
+        Game.am.add(AudioManager.sounds_bombKick);
         p.roll(directionX, directionY);//"Kick" it
     }
 
     public void punch()//Whenever the Player presses Punch and has BombPunch, a hitbox is made in front of them to detect Bombs
     {
-        Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombPunch));
+        Game.am.add(AudioManager.sounds_bombPunch);
         int directionX = 0;
         int directionY = 0;
 
@@ -1248,7 +1056,7 @@ public class Player extends Mob
 
         if(projectileCollision(directionX*20,directionY*20,z) != null && projectileCollision(directionX*20,directionY*20,z) instanceof Bomb)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombPunchHit));
+            Game.am.add(AudioManager.sounds_bombPunchHit);
             projectileCollision(directionX*20,directionY*20,z).hop(directionX, directionY, true, 3);//"Punch" it
         }
     }
@@ -1302,7 +1110,7 @@ public class Player extends Mob
             if((entityCollision(dirX,dirY,z-1) != null && entityCollision(dirX,dirY,z-1).solid())
             || (tileCollision(this,dir.NONE,0,nx,ny,z-1).solid() && !floorCollision(this,dir.NONE,0,nx,ny,z).isFloor()))
             {
-                Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombKick));
+                Game.am.add(AudioManager.sounds_bombKick);
             }
             else{bouncing = false;}
             bounceNum = 0;
@@ -1419,7 +1227,7 @@ public class Player extends Mob
                 collectedSpecialType[i] = false;
             }
             //level.dropItems(collectedItems);
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bomberDeath));//Plays Death sound effect
+            Game.am.add(AudioManager.sounds_bomberDeath);//Plays Death sound effect
         }
 
         dead = true;//Make the Player dead

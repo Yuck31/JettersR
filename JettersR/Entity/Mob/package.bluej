@@ -1,12 +1,12 @@
 #BlueJ package file
-objectbench.height=79
+objectbench.height=80
 objectbench.width=416
 package.divider.horizontal=0.6
-package.divider.vertical=0.6742424242424242
-package.editor.height=155
+package.divider.vertical=0.6704545454545454
+package.editor.height=154
 package.editor.width=294
-package.editor.x=234
-package.editor.y=126
+package.editor.x=119
+package.editor.y=204
 package.frame.height=361
 package.frame.width=440
 package.numDependencies=0
@@ -23,7 +23,7 @@ target1.name=Mob
 target1.showInterface=false
 target1.type=AbstractTarget
 target1.width=80
-target1.x=50
+target1.x=60
 target1.y=20
 target2.height=50
 target2.name=Player
