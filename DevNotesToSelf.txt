@@ -33,8 +33,11 @@ In-Game Skull Diseases
 -Short Fuse Disease - Bombs take 1 second to explode.
 -Weak Combustion Syndrome - Bombs explode at 1 fire regardless of Fire-Ups.
 -Insufficient Bombs Disease - Player can only place one bomb regardless of Bomb-Ups.
--Bomb Diarrhea - Player places Bombs uncontrollably whenever possible.
--Bomb Constapation - Player is unable to place bombs.
+-Overactive Deployment Syndrome - Player places Bombs uncontrollably whenever possible.
+-Underactive Deployment Syndrome - Player can only place one bomb.
 -Foxtrot Syndrome - Player "Foxtrots" between slow and fast speeds.
 -Molasses Slug Syndrome - Player moves really slow.
 -Ludicrous Speed Syndrome - Player moves extremly fast.
+
+I'll leave this for you to figure out what these are...
+-Potential (Initial), Promise, FriendShip, Brotherhood, Selflessness, and the 6th one...
