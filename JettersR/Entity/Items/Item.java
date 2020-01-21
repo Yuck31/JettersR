@@ -6,6 +6,7 @@ import JettersR.Entity.*;
 import JettersR.Entity.Mob.*;
 public class Item extends Entity
 {
+    public AudioContents itemCollect = AudioManager.sounds_itemCollect;
     public byte spawnTime = 0;
     public byte time = 0;
     public boolean breakable = true;
@@ -75,7 +76,7 @@ public class Item extends Entity
         if(spawning){return;}
         if(collected == false)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_itemCollect));
+            Game.am.add(itemCollect);
             x = x - 2;
             y = y - 4;
             bounds.width = 0;

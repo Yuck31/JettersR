@@ -1,7 +1,9 @@
 package JettersR.Entity.Items;
 
 import JettersR.*;
+import JettersR.Audio.*;
 import JettersR.Entity.Mob.*;
+
 public class SkullItem extends Item
 {
     public Disease disease = Disease.NONE;
@@ -9,8 +11,9 @@ public class SkullItem extends Item
     {
         super(x,y,z);
 
-        itemAnim = new AnimatedSprite(SpriteSheet.bombPassAnim, 32, 32, 12, 6);
+        itemAnim = new AnimatedSprite(SpriteSheet.skullItem0, 32, 32, 12, 6);
         this.disease = disease;
+        itemCollect = AudioManager.sounds_skullCollect;
     }
     
     public void collect(Player player)
