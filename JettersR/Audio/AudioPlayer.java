@@ -1,11 +1,10 @@
 package JettersR.Audio;
-
 /**
  * This is the Class that plays WAV files.
  * 
  *
  * author: Luke Sullivan
- * Last Edit: 9/21/2019
+ * Last Edit: 1/19/2020
  */
 
 import javax.sound.sampled.*;
@@ -13,66 +12,64 @@ import java.io.*;
 
 public class AudioPlayer implements AutoCloseable
 {
-    private Clip[] clips;
     AudioInputStream ais;
+    AudioFormat decodeFormat;
+    AudioInputStream dais;
+
+    //These variables are meant for recycling the sound effect if possible
+    public AudioContents contents;
+    public int timeToLive = 0;//In seconds
+    public final int startTimeToLive;
+    public byte ttlFrames = 0;//In frames
+    //
+
+    protected Clip clip;
     public boolean played = false;
 
-    public AudioPlayer(String path, int soundCount)
+    public AudioPlayer(String path, AudioContents contents, int timeToLive)
     {
-        FileInputStream stream;
+        this.contents = contents;
+        this.timeToLive = timeToLive;
+        startTimeToLive = timeToLive;
         try
         {
-            stream = new FileInputStream(path);
+            ais = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(path));
+            AudioFormat baseFormat = ais.getFormat();
+
+            decodeFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(), 16, baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(),false);
+
+            dais = AudioSystem.getAudioInputStream(decodeFormat, ais);
+
+            clip = AudioSystem.getClip();
+            clip.open(dais);
         }
-        catch(Exception e){}
-
-        clips = new Clip[soundCount];
-
-        for(int i = 0; i < soundCount; i++)
+        catch (Exception e)
         {
-            try
-            {
-                ais = 
-                AudioSystem.getAudioInputStream(getClass().getResourceAsStream(path));
-                AudioFormat baseFormat = ais.getFormat();
-
-                AudioFormat decodeFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(), 16, baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(),false);
-
-                AudioInputStream dais = AudioSystem.getAudioInputStream(decodeFormat, ais);
-
-                clips[i] = AudioSystem.getClip();
-                clips[i].open(dais);
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
+            e.printStackTrace();
         }
     }
 
-    public AudioPlayer(String path)
+    public AudioPlayer(String path, float volume, AudioContents contents, int timeToLive)
     {
-        this(path, 1);
-    }
-
-    public AudioPlayer(String path, float volume)
-    {
-        this(path, 1);
+        this(path, contents, timeToLive);
         setVolume(volume);
     }
 
-    public AudioPlayer(String path, int soundCount, float volume)
+    public AudioPlayer(Clip clip, AudioInputStream dais)
     {
-        this(path, soundCount);
-        for(int i = 0; i < soundCount; i++)
-        {
-            setVolume(volume, i);
-        }
+        this.clip = clip;
+        startTimeToLive = 0;
+    }
+
+    public AudioPlayer(Clip clip, AudioInputStream dais, float volume)
+    {
+        this(clip, dais);
+        setVolume(volume);
     }
 
     public float getVolume()
     {
-        FloatControl gainControl = (FloatControl) clips[0].getControl(FloatControl.Type.MASTER_GAIN);        
+        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);        
         return (float) Math.pow(10f, gainControl.getValue() / 20f);
     }
 
@@ -80,7 +77,7 @@ public class AudioPlayer implements AutoCloseable
     {
         try
         {
-            FloatControl gainControl = (FloatControl) clips[0].getControl(FloatControl.Type.MASTER_GAIN);        
+            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);        
             gainControl.setValue(20f * (float) Math.log10(volume));
         }
         catch(Exception e)
@@ -93,7 +90,7 @@ public class AudioPlayer implements AutoCloseable
     {
         try
         {
-            FloatControl gainControl = (FloatControl) clips[soundNum].getControl(FloatControl.Type.MASTER_GAIN);        
+            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);        
             gainControl.setValue(20f * (float) Math.log10(volume));
         }
         catch(Exception e)
@@ -102,137 +99,65 @@ public class AudioPlayer implements AutoCloseable
         }
     }
 
-    public void play(int soundNum)
-    {
-        if(clips[soundNum] == null){return;}
-        else if(clips[soundNum].isRunning()){stop(soundNum);}
-        clips[soundNum].setFramePosition(0);
-        clips[soundNum].start();
-    }
-
     public void play()
     {
-        if(clips[0] == null){return;}
-        else if(clips[0].isRunning()){stop(0);}
-        clips[0].setFramePosition(0);
-        clips[0].start();
+        //System.out.println(clips[0].getFramePosition());
+        if(clip == null){return;}
+        else if(clip.isRunning()){stop();}
+        clip.setFramePosition(0);
+        clip.start();
         played = true;
-    }
-
-    public void playOver()
-    {
-        for(int i = 0; i < clips.length; i++)
-        {
-            if(!getPlaying(i))
-            {
-                play(i);
-                return;
-            }
-        }
-        play(0);
-    }
-
-    public void resume(int soundNum)
-    {
-        if(clips[soundNum] == null){return;}
-        else if(clips[soundNum].isRunning()){stop(soundNum);}
-        clips[soundNum].start();
     }
 
     public void resume()
     {
-        if(clips[0] == null){ return;}
-        else if(clips[0].isRunning()){stop(0);}
-        clips[0].start();
-    }
-
-    public void stop(int soundNum)
-    {
-        if(clips[soundNum] != null && clips[soundNum].isRunning())
-        {
-            clips[soundNum].stop();
-        }
+        if(clip == null){ return;}
+        else if(clip.isRunning()){stop();}
+        clip.start();
     }
 
     public void stop()
     {
-        if(clips[0] != null && clips[0].isRunning())
+        if(clip != null && clip.isRunning())
         {
-            clips[0].stop();
+            clip.stop();
         }
-    }
-
-    public boolean getPlaying(int soundNum)
-    {
-        if(clips[soundNum] != null)
-        {
-            played = true;
-            return clips[soundNum].isRunning();
-        }
-        else{return false;}
     }
 
     public boolean getPlaying()
     {
-        if(clips[0] != null)
+        if(clip != null)
         {
-            //played = true;
-            //System.out.println(clips[0].isRunning());
-            return clips[0].isRunning();
+            return clip.isRunning();
         }
         else{return false;}
-    }
-
-    public void close(int soundNum)
-    {
-        try
-        {
-            stop(soundNum);
-            clips[soundNum].close();
-            clips[soundNum] = null;
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        clips[soundNum] = null;
     }
 
     public void close()
     {
         try
         {
-            //stop();
-            clips[0].close();
-            //finalize();
+            clip.close();
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-        //clips[0] = null;
-    }
-
-    public void closeAll()
-    {
-        for(int i = 0; i < clips.length; i++)
-        {
-            try
-            {
-                stop(i);
-                clips[i].close();
-                clips[i] = null;
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-            clips[i] = null;
-        }
+        clip = null;
     }
 
     public boolean getPlayed()
     {
         return played;
+    }
+
+    public AudioPlayer getInstance()
+    {
+        return new AudioPlayer(getClip(), dais);
+    }
+
+    public Clip getClip()
+    {
+        return clip;
     }
 }

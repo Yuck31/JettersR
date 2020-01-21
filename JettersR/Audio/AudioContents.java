@@ -7,35 +7,41 @@ package JettersR.Audio;
  */
 public class AudioContents
 {
-    String path;
-    float volume = 1;
-    boolean loop = false;
+    protected String path;
+    protected float volume = 1;
+    protected boolean loop = false;
+    protected int timeToLive = 0;
     
-    AudioContents(String path)
+    AudioContents(String path, int timeToLive)
     {
         this.path = path;
+        this.timeToLive = timeToLive;
     }
     
-    AudioContents(String path, float volume)
+    AudioContents(String path, int timeToLive, float volume)
     {
         this.path = path;
+        this.timeToLive = timeToLive;
         this.volume = volume;
     }
     
-    AudioContents(String path, boolean loop)
+    AudioContents(String path, int timeToLive, boolean loop)
     {
         this.path = path;
+        this.timeToLive = timeToLive;
         this.loop = loop;
     }
     
-    AudioContents(String path, float volume, boolean loop)
+    AudioContents(String path, int timeToLive, float volume, boolean loop)
     {
         this.path = path;
+        this.timeToLive = timeToLive;
         this.volume = volume;
         this.loop = loop;
     }
     
     public String getPath(){return path;}
+    public int getTimeToLive(){return timeToLive;}
     public float getVolume(){return volume;}
     public boolean getLoop(){return loop;}
 }

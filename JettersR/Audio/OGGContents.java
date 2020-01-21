@@ -9,23 +9,23 @@ public class OGGContents extends AudioContents
 {
     OGGContents(String path)
     {
-        super(path);
+        super(path, 0);
         volume = -1;
     }
     
     OGGContents(String path, float volume)
     {
-        super(path, volume);
+        super(path, 0, volume);
     }
     
     OGGContents(String path, boolean loop)
     {
-        super(path, loop);
+        super(path, 0, loop);
         volume = -1;
     }
     
     OGGContents(String path, float volume, boolean loop)
     {
-        super(path, volume, loop);
+        super(path, 0, volume, loop);
     }
 }
