@@ -5,7 +5,7 @@ package JettersR;
  * It also creates the window frame that the game is played on.
  *
  * author: Luke Sullivan
- * Last Edit: 11/7/19
+ * Last Edit: 1/20/20
  */
 
 import JettersR.*;
@@ -25,6 +25,9 @@ import java.awt.image.DataBufferInt;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 import com.studiohartman.jamepad.*;//CONTROLLER SUPPORT!
 
 public class Game extends Canvas implements Runnable
@@ -39,22 +42,29 @@ public class Game extends Canvas implements Runnable
     public static int fps = 0;
     public static float brightness = 1.0f;
     public static boolean screenStretch = false;
-    public static String TITLE = "Bomberman(2019)";
+    public static final String TITLE = "Bomberman(2019)";
 
     private static Thread thread;//For Single-Thread
-    public static UpdateThread updateThread;//For Multi-Thread
-    public static RenderThread renderThread;//For Multi-Thread
+    private static UpdateThread updateThread;//For Multi-Thread
+    private static RenderThread renderThread;//For Multi-Thread
     public static boolean updating = false;
     public static boolean rendering = false;
 
+    //
     public static JFrame frame;
+    public static JMenuBar menuBar;
+    //
+    public static JMenu FILE;
+    public static JMenuItem NEW, LOAD, SAVE, SAVEAS;
+    //
+    
     public static Keyboard key;
+    public static Mouse mouse;
     private static boolean running = false;
 
     public static UIManager uiManager;
 
     public static Screen screen;
-    private static Font font;
 
     public static GameStateManager gsm;
     public static AudioManager am;
@@ -158,17 +168,19 @@ public class Game extends Canvas implements Runnable
         key = new Keyboard();//Creates keyboard manager object.
         addKeyListener(key);
 
-        Mouse mouse = new Mouse();//Creates mouse manager object.
+        mouse = new Mouse(screen);//Creates mouse manager object.
         addMouseListener(mouse);
         addMouseMotionListener(mouse);
-
-        font = new Font();//Makes a new font object.
+        addMouseWheelListener(mouse);
 
         uiManager = new UIManager();//Makes a new UI object.
 
         am = new AudioManager();
-        gsm = new GameStateManager(key);//Creates the Game's GameStateManager.
-
+    }
+    
+    public void initGame()
+    {
+        gsm = new GameStateManager(key, GameStateManager.MENUSTATE);//Creates the Game's GameStateManager.
         updateThread = new UpdateThread(this);
         renderThread = new RenderThread(this);
     }
@@ -213,7 +225,7 @@ public class Game extends Canvas implements Runnable
         running = true;
         //Because Game extends "Runable", this instance of Game is added to the thread's constructor.
         thread = new Thread(this, "Thread");//Creates the Game's updating thread
-        thread.start();//Starts the updating Thread which starts run()
+        thread.start();//Starts the Thread which starts run()
     }
 
     public synchronized void multiStart()
@@ -239,7 +251,7 @@ public class Game extends Canvas implements Runnable
     }
 
     @Override
-    public void run()//This executes as soon as the Game's Thread is made and started (if multi-threaded
+    public void run()//This executes as soon as the Game's Thread is made and started
     {
         //fps counting
         long startTime = System.currentTimeMillis();
@@ -281,8 +293,9 @@ public class Game extends Canvas implements Runnable
     {
         //System.out.println(getUsedMemory() + " / " + Runtime.getRuntime().totalMemory());
         gsm.update();//Updates the Game State Manager which updates everything else
-        key.update();//Updates keyboard
-        am.update();
+        key.update();//Updates Keyboard
+        mouse.update();
+        am.update();//Updates AudioManager
     }
 
     /**We use Buffer strategies to prepare images for future frames*/
@@ -295,10 +308,14 @@ public class Game extends Canvas implements Runnable
             return;//Gets out of render()
         }
 
-        screen.clear();//Without this, pixels "out of bounds" would "overlap" each other and create a "trippy" effect.
+        screen.clear();//Without this, pixels left over from the preivious frame would cause a trippy effect
 
         gsm.render(screen);//Renders the Game State Manager which renders everything else
-        //screen.fillRect((int)(Mouse.getX()*scale),(int)(Mouse.getY()*scale), 16,16,0xFF000000,false);//Oh yeah, it also draws a rectangle over the mouse's position
+        //
+        // double x = mouse.getX();
+        // double y = mouse.getY();
+        // screen.drawRect((int)x, (int)y, 1, 1, 0xFFFFFF00, false);//Oh yeah, it also draws a rectangle over the mouse's position
+        //
         for(int i = 0; i < pixels.length; i++)
         {
             if(brightness != 0)
@@ -352,22 +369,22 @@ public class Game extends Canvas implements Runnable
         {
             if(getHeight() > getWidth())//Graphics then FINALLY draws the array of pixels as an image according to the size of the JFrame.
             {
-                g.drawImage(image,0,(getHeight()-((getWidth()/16)*9))/2,getWidth(),(getWidth()/16)*9, null);
+                g.drawImage(image, 0, (getHeight()-((getWidth()/16)*9))/2, getWidth(), (getWidth()/16)*9, null);
             }
             else// if(getWidth() >= getHeight())
             {
                 if((getHeight()/9)*16 > getWidth())
                 {
-                    g.drawImage(image,0,(getHeight()-((getWidth()/16)*9))/2,getWidth(),(getWidth()/16)*9, null);
+                    g.drawImage(image, 0, (getHeight()-((getWidth()/16)*9))/2, getWidth(), (getWidth()/16)*9, null);
                 }
                 else
                 {
-                    g.drawImage(image,0,0,getWidth(),getHeight(), null);
+                    g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
                 }
             }
         }
-        else{g.drawImage(image,0,0,getWidth(),getHeight(), null);}
-        //g.fillRect(Mouse.getX(),Mouse.getY(), 16,16);//Oh yeah, it also draws a rectangle on the mouse's position
+        else{g.drawImage(image, 0, 0, getWidth(), getHeight(), null);}
+        //g.fillRect(mouse.getX(), mouse.getY(), 16, 16);
         g.dispose();//Disposes current graphics
         //(graphics would break the game otherwise...)
         bs.show();//Displays everything that just happened.
@@ -375,12 +392,13 @@ public class Game extends Canvas implements Runnable
 
     public static void setBrightness(float amount)
     {
-        brightness+=amount;//It takes amount and adds it to brightness... that's it.
+        brightness += amount;//It takes amount and adds it to brightness... that's it.
     }
 
     public static void main(String[] args)//The function that starts the game (creates and starts an instance of the game)
     {
         Game game = new Game();//Creates an instance of Game
+        game.initGame();
         //game.frame.setUndecorated(true);
         game.frame.setResizable(true);//Determines if the window can be stretched (pixels DO scale with the window)
         game.frame.setTitle(Game.TITLE);//Title
@@ -390,12 +408,11 @@ public class Game extends Canvas implements Runnable
         try {
             game.frame.setIconImage(ImageIO.read(new File("ImageIcon.png")));
         }
-        catch (IOException exc) {
-            exc.printStackTrace();
+        catch (IOException e) {
+            e.printStackTrace();
         }
         game.frame.setLocationRelativeTo(null);//Center window
         //game.frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        //game.frame.setUndecorated(true);
         game.frame.setVisible(true);//Make it show something
 
         game.start();
