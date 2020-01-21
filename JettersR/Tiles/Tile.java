@@ -82,8 +82,13 @@ public class Tile
     public static Tile rockGardenWallV1 = new SolidTile(Sprite.gardenWallV1, -16);
     public static Tile rockGardenWallV2 = new SolidTile(Sprite.gardenWallV2, -16);
     public static Tile rockGardenWallV3 = new SolidTile(Sprite.gardenWallV3, -16);
-    public static Tile rockGardenPole = new SolidTile(Sprite.gardenPole, -32);
-    public static Tile rockGardenTallPole = new SolidTile(Sprite.gardenTallPole, -64);
+    //public static Tile rockGardenPole = new SolidTile(Sprite.gardenPole, -32);
+    public static Tile rockGardenPole0 = new SolidTile(Sprite.gardenPole0, 0);
+    public static Tile rockGardenPole1 = new SolidTile(Sprite.gardenPole1, -16);
+    //public static Tile rockGardenTallPole = new SolidTile(Sprite.gardenTallPole, -64);
+    public static Tile rockGardenTallPole0 = new SolidTile(Sprite.gardenTallPole0, 0);
+    public static Tile rockGardenTallPole1 = new SolidTile(Sprite.gardenTallPole1, -16);
+    public static Tile rockGardenTallPole2 = new SolidTile(Sprite.gardenTallPole2, -32);
     //
 
     //All Maps
@@ -151,9 +156,21 @@ public class Tile
         screen.renderSprite((x << 5), ((y << 5)+yOffset)-z*16, sprite, true);
     }
     
+    public void render(int x, int y, int z, float trans, Screen screen)
+    {
+        screen.renderTranslucentSprite((x << 5), ((y << 5)+yOffset)-z*16, trans, sprite, true);
+    }
+    
+    public void render(int x, int y, Screen screen)
+    {
+        screen.renderSprite(x, y, sprite, false);
+    }
+    
+    public void render(int x, int y, int z, boolean show, Screen screen){render(x,y,z,screen);}//For the Level Editor
+    
     public void renderScale(int x, int y, int z, float scale, Screen screen)
     {
-        screen.renderSprite((int)(x * (32*scale)), (int)(y * (32*scale) + (((yOffset)-(z*16))*scale)), Sprite.scale(sprite, scale), true);
+        screen.renderSprite((int)((x << 5)*scale), (int)(((y << 5) + (((yOffset)-(z*16))))*scale), Sprite.scale(sprite, scale), true);
     }
 
     public boolean solid()

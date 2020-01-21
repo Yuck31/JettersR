@@ -1,15 +1,21 @@
 #BlueJ package file
+dependency1.from=UIPanel
+dependency1.to=UIComponent
+dependency1.type=UsesDependency
+dependency2.from=UILabel
+dependency2.to=UIPanel
+dependency2.type=UsesDependency
 objectbench.height=73
 objectbench.width=450
 package.divider.horizontal=0.6
 package.divider.vertical=0.7202797202797203
 package.editor.height=183
 package.editor.width=328
-package.editor.x=273
-package.editor.y=129
+package.editor.x=127
+package.editor.y=213
 package.frame.height=383
 package.frame.width=474
-package.numDependencies=0
+package.numDependencies=2
 package.numTargets=5
 package.showExtends=true
 package.showUses=true

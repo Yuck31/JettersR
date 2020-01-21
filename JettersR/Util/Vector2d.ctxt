@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Vector2d
+comment0.text=\n\ \n\n\ @author\:\ Luke\ Sullivan\n\ @1/3/20\n
+comment1.params=
+comment1.target=Vector2d()
+comment10.params=y
+comment10.target=Vector2d\ SetY(int)
+comment2.params=vector
+comment2.target=Vector2d(Vector2d)
+comment3.params=x\ y
+comment3.target=Vector2d(double,\ double)
+comment4.params=x\ y
+comment4.target=void\ set(double,\ double)
+comment5.params=
+comment5.target=double\ getX()
+comment6.params=
+comment6.target=double\ getY()
+comment7.params=vector
+comment7.target=Vector2d\ add(Vector2i)
+comment8.params=vector
+comment8.target=Vector2d\ subtract(Vector2i)
+comment9.params=x
+comment9.target=Vector2d\ SetX(int)
+numComments=11
