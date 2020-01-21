@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=LevelEditorMain
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=LevelEditorMain()
+comment3.params=
+comment3.target=void\ createMenuBar()
+comment4.params=
+comment4.target=void\ displayErrorDialog()
+comment5.params=e
+comment5.target=void\ menuSelected(javax.swing.event.MenuEvent)
+comment6.params=e
+comment6.target=void\ menuDeselected(javax.swing.event.MenuEvent)
+comment7.params=e
+comment7.target=void\ menuCanceled(javax.swing.event.MenuEvent)
+comment8.params=e
+comment8.target=void\ actionPerformed(java.awt.event.ActionEvent)
+numComments=9

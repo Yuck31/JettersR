@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=LevelEditor
+comment1.params=ui\ key\ mouse
+comment1.target=LevelEditor(JettersR.UI.UIManager,\ JettersR.Keyboard,\ JettersR.Mouse)
+comment2.params=
+comment2.target=void\ init()
+comment3.params=path
+comment3.target=int[]\ loadColors(java.lang.String)
+comment4.params=
+comment4.target=void\ save()
+comment5.params=
+comment5.target=void\ swapColors()
+comment6.params=
+comment6.target=void\ update()
+comment7.params=screen
+comment7.target=void\ render(JettersR.Screen)
+numComments=8
