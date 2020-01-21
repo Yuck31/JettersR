@@ -499,284 +499,56 @@ public class Keyboard implements KeyListener
         swapRButton[7] = KeyEvent.VK_T;
     }
 
-    public void update()
+    public void update()//Yeah, I finally had the time to "de-noobify" this code
     {
-        ControllerState player1Control = controllers.getState(controllerNums[0]);
-        ControllerState player2Control = controllers.getState(controllerNums[1]);
-        ControllerState player3Control = controllers.getState(controllerNums[2]);
-        ControllerState player4Control = controllers.getState(controllerNums[3]);
-
-        ControllerState player5Control = controllers.getState(controllerNums[4]);
-        ControllerState player6Control = controllers.getState(controllerNums[5]);
-        ControllerState player7Control = controllers.getState(controllerNums[6]);
-        ControllerState player8Control = controllers.getState(controllerNums[7]);
-        //Player 1
-        if(player1Control.isConnected)//If the Player's controller is plugged in...
-        {//Assign controller inputs
-            up[0] = player1Control.leftStickY > 0.5 | player1Control.dpadUp;//Up D-Pad
-            down[0]  = player1Control.leftStickY < -0.5 | player1Control.dpadDown;//Down D-Pad
-            left[0]  = player1Control.leftStickX < -0.5 | player1Control.dpadLeft;//Left D-Pad
-            right[0]  = player1Control.leftStickX > 0.5 | player1Control.dpadRight;//Right D-Pad
-
-            bomb[0] = player1Control.a;//A Button
-            punch[0] = player1Control.x;//X Button
-            remote[0] = player1Control.y;//Y Button
-            special[0] = player1Control.b;//B Button
-
-            swapL[0] = player1Control.lb;//Left Bumper
-            swapR[0] = player1Control.rb;//Right bumper
-        }
-
-        else//Otherwise, assign Keyborad inputs
+        ControllerState[] playerControl = new ControllerState[8];
+        for(int i = 0; i < playerControl.length; i++)
         {
-            up[0] = keys[upButton[0]];
-            down[0]  = keys[downButton[0]];
-            left[0]  = keys[leftButton[0]];
-            right[0]  = keys[rightButton[0]];
+            playerControl[i] = controllers.getState(controllerNums[i]);
+            if(playerControl[i].isConnected)//If the Player's controller is plugged in...
+            {//Assign controller inputs
+                ControllerState controller = playerControl[i];
+                
+                up[i] = controller.leftStickY > 0.5 | controller.dpadUp;//Up D-Pad
+                down[i]  = controller.leftStickY < -0.5 | controller.dpadDown;//Down D-Pad
+                left[i]  = controller.leftStickX < -0.5 | controller.dpadLeft;//Left D-Pad
+                right[i]  = controller.leftStickX > 0.5 | controller.dpadRight;//Right D-Pad
 
-            bomb[0] = keys[bombButton[0]];
-            punch[0] = keys[punchButton[0]];
-            remote[0] = keys[remoteButton[0]];
-            special[0] = keys[specialButton[0]];
+                bomb[i] = controller.a;//A Button
+                punch[i] = controller.x;//X Button
+                remote[i] = controller.y;//Y Button
+                special[i] = controller.b;//B Button
 
-            swapL[0] = keys[swapLButton[0]];
-            swapR[0] = keys[swapRButton[0]];
-        }
+                swapL[i] = controller.lb;//Left Bumper
+                swapR[i] = controller.rb;//Right bumper
+            }
+            else//Otherwise, assign Keyborad inputs
+            {
+                up[i] = keys[upButton[i]];
+                down[i]  = keys[downButton[i]];
+                left[i]  = keys[leftButton[i]];
+                right[i]  = keys[rightButton[i]];
 
-        //Player 2
-        if(player2Control.isConnected)
-        {
-            up[1] = player2Control.leftStickY > 0.5 | player2Control.dpadUp;//Up D-Pad
-            down[1]  = player2Control.leftStickY < -0.5 | player2Control.dpadDown;//Down D-Pad
-            left[1]  = player2Control.leftStickX < -0.5 | player2Control.dpadLeft;//Left D-Pad
-            right[1]  = player2Control.leftStickX > 0.5 | player2Control.dpadRight;//Right D-Pad
+                bomb[i] = keys[bombButton[i]];
+                punch[i] = keys[punchButton[i]];
+                remote[i] = keys[remoteButton[i]];
+                special[i] = keys[specialButton[i]];
 
-            bomb[1] = player2Control.a;//A Button
-            punch[1] = player2Control.x;//X Button
-            remote[1] = player2Control.y;//Y Button
-            special[1] = player2Control.b;//B Button
-
-            swapL[1] = player2Control.lb;//Left Bumper
-            swapR[1] = player2Control.rb;//Right bumper
-        }
-        else
-        {
-            up[1] = keys[upButton[1]];
-            down[1]  = keys[downButton[1]];
-            left[1]  = keys[leftButton[1]];
-            right[1]  = keys[rightButton[1]];
-
-            bomb[1] = keys[bombButton[1]];
-            punch[1] = keys[punchButton[1]];
-            remote[1] = keys[remoteButton[1]];
-            special[1] = keys[specialButton[1]];
-
-            swapL[1] = keys[swapLButton[1]];
-            swapR[1] = keys[swapRButton[1]];
-        }
-
-        //Player 3
-        if(player3Control.isConnected)
-        {
-            up[2] = player3Control.leftStickY > 0.5 | player3Control.dpadUp;//Up D-Pad
-            down[2]  = player3Control.leftStickY < -0.5 | player3Control.dpadDown;//Down D-Pad
-            left[2]  = player3Control.leftStickX < -0.5 | player3Control.dpadLeft;//Left D-Pad
-            right[2]  = player3Control.leftStickX > 0.5 | player3Control.dpadRight;//Right D-Pad
-
-            bomb[2] = player3Control.a;//A Button
-            punch[2] = player3Control.x;//X Button
-            remote[2] = player3Control.y;//Y Button
-            special[2] = player3Control.b;//B Button
-
-            swapL[2] = player3Control.lb;//Left Bumper
-            swapR[2] = player3Control.rb;//Right bumper
-        }
-        else
-        {
-            up[2] = keys[upButton[2]];
-            down[2]  = keys[downButton[2]];
-            left[2]  = keys[leftButton[2]];
-            right[2]  = keys[rightButton[2]];
-
-            bomb[2] = keys[bombButton[2]];
-            punch[2] = keys[punchButton[2]];
-            remote[2] = keys[remoteButton[2]];
-            special[2] = keys[specialButton[2]];
-
-            swapL[2] = keys[swapLButton[2]];
-            swapR[2] = keys[swapRButton[2]];
-        }
-
-        //Player 4
-        if(player4Control.isConnected)
-        {
-            up[3] = player4Control.leftStickY > 0.5 | player4Control.dpadUp;//Up D-Pad
-            down[3]  = player4Control.leftStickY < -0.5 | player4Control.dpadDown;//Down D-Pad
-            left[3]  = player4Control.leftStickX < -0.5 | player4Control.dpadLeft;//Left D-Pad
-            right[3]  = player4Control.leftStickX > 0.5 | player4Control.dpadRight;//Right D-Pad
-
-            bomb[3] = player4Control.a;//A Button
-            punch[3] = player4Control.x;//X Button
-            remote[3] = player4Control.y;//Y Button
-            special[3] = player4Control.b;//B Button
-
-            swapL[3] = player4Control.lb;//Left Bumper
-            swapR[3] = player4Control.rb;//Right bumper
-        }
-        else
-        {
-            up[3] = keys[upButton[3]];
-            down[3]  = keys[downButton[3]];
-            left[3]  = keys[leftButton[3]];
-            right[3]  = keys[rightButton[3]];
-
-            bomb[3] = keys[bombButton[3]];
-            punch[3] = keys[punchButton[3]];
-            remote[3] = keys[remoteButton[3]];
-            special[3] = keys[specialButton[3]];
-
-            swapL[3] = keys[swapLButton[3]];
-            swapR[3] = keys[swapRButton[3]];
-        }
-
-        //Player 5
-        if(player5Control.isConnected)
-        {
-            up[4] = player5Control.leftStickY > 0.5 | player5Control.dpadUp;//Up D-Pad
-            down[4]  = player5Control.leftStickY < -0.5 | player5Control.dpadDown;//Down D-Pad
-            left[4]  = player5Control.leftStickX < -0.5 | player5Control.dpadLeft;//Left D-Pad
-            right[4]  = player5Control.leftStickX > 0.5 | player5Control.dpadRight;//Right D-Pad
-
-            bomb[4] = player5Control.a;//A Button
-            punch[4] = player5Control.x;//X Button
-            remote[4] = player5Control.y;//Y Button
-            special[4] = player5Control.b;//B Button
-
-            swapL[4] = player5Control.lb;//Left Bumper
-            swapR[4] = player5Control.rb;//Right bumper
-        }
-        else
-        {
-            up[4] = keys[upButton[4]];
-            down[4]  = keys[downButton[4]];
-            left[4]  = keys[leftButton[4]];
-            right[4]  = keys[rightButton[4]];
-
-            bomb[4] = keys[bombButton[4]];
-            punch[4] = keys[punchButton[4]];
-            remote[4] = keys[remoteButton[4]];
-            special[4] = keys[specialButton[4]];
-
-            swapL[4] = keys[swapLButton[4]];
-            swapR[4] = keys[swapRButton[4]];
-        }
-
-        //Player 6
-        if(player6Control.isConnected)
-        {
-            up[5] = player6Control.leftStickY > 0.5 | player6Control.dpadUp;//Up D-Pad
-            down[5]  = player6Control.leftStickY < -0.5 | player6Control.dpadDown;//Down D-Pad
-            left[5]  = player6Control.leftStickX < -0.5 | player6Control.dpadLeft;//Left D-Pad
-            right[5]  = player6Control.leftStickX > 0.5 | player6Control.dpadRight;//Right D-Pad
-
-            bomb[5] = player6Control.a;//A Button
-            punch[5] = player6Control.x;//X Button
-            remote[5] = player6Control.y;//Y Button
-            special[5] = player6Control.b;//B Button
-
-            swapL[5] = player6Control.lb;//Left Bumper
-            swapR[5] = player6Control.rb;//Right bumper
-        }
-        else
-        {
-            up[5] = keys[upButton[5]];
-            down[5]  = keys[downButton[5]];
-            left[5]  = keys[leftButton[5]];
-            right[5]  = keys[rightButton[5]];
-
-            bomb[5] = keys[bombButton[5]];
-            punch[5] = keys[punchButton[5]];
-            remote[5] = keys[remoteButton[5]];
-            special[5] = keys[specialButton[5]];
-
-            swapL[5] = keys[swapLButton[5]];
-            swapR[5] = keys[swapRButton[5]];
-        }
-
-        //Player 7
-        if(player7Control.isConnected)
-        {
-            up[6] = player7Control.leftStickY > 0.5 | player7Control.dpadUp;//Up D-Pad
-            down[6]  = player7Control.leftStickY < -0.5 | player7Control.dpadDown;//Down D-Pad
-            left[6]  = player7Control.leftStickX < -0.5 | player7Control.dpadLeft;//Left D-Pad
-            right[6]  = player7Control.leftStickX > 0.5 | player7Control.dpadRight;//Right D-Pad
-
-            bomb[6] = player7Control.a;//A Button
-            punch[6] = player7Control.x;//X Button
-            remote[6] = player7Control.y;//Y Button
-            special[6] = player7Control.b;//B Button
-
-            swapL[6] = player7Control.lb;//Left Bumper
-            swapR[6] = player7Control.rb;//Right Bumper
-        }
-        else
-        {
-            up[6] = keys[upButton[6]];
-            down[6]  = keys[downButton[6]];
-            left[6]  = keys[leftButton[6]];
-            right[6]  = keys[rightButton[6]];
-
-            bomb[6] = keys[bombButton[6]];
-            punch[6] = keys[punchButton[6]];
-            remote[6] = keys[remoteButton[6]];
-            special[6] = keys[specialButton[6]];
-
-            swapL[6] = keys[swapLButton[6]];
-            swapR[6] = keys[swapRButton[6]];
-        }
-
-        //Player 8
-        if(player8Control.isConnected)
-        {
-            up[7] = player8Control.leftStickY > 0.5 | player8Control.dpadUp;//Up D-Pad
-            down[7]  = player8Control.leftStickY < -0.5 | player8Control.dpadDown;//Down D-Pad
-            left[7]  = player8Control.leftStickX < -0.5 | player8Control.dpadLeft;//Left D-Pad
-            right[7]  = player8Control.leftStickX > 0.5 | player8Control.dpadRight;//Right D-Pad
-
-            bomb[7] = player8Control.a;//A Button
-            punch[7] = player8Control.x;//X Button
-            remote[7] = player8Control.y;//Y Button
-            special[7] = player8Control.b;//B Button
-
-            swapL[7] = player8Control.lb;//Left Bumper
-            swapR[7] = player8Control.rb;//Right bumper
-        }
-        else
-        {
-            up[7] = keys[upButton[7]];
-            down[7]  = keys[downButton[7]];
-            left[7]  = keys[leftButton[7]];
-            right[7]  = keys[rightButton[7]];
-
-            bomb[7] = keys[bombButton[7]];
-            punch[7] = keys[punchButton[7]];
-            remote[7] = keys[remoteButton[7]];
-            special[7] = keys[specialButton[7]];
-
-            swapL[7] = keys[swapLButton[7]];
-            swapR[7] = keys[swapRButton[7]];
+                swapL[i] = keys[swapLButton[i]];
+                swapR[i] = keys[swapRButton[i]];
+            }
         }
 
         //Misc.
-        if(player1Control.isConnected){pause = player1Control.start;}
+        if(playerControl[0].isConnected){pause = playerControl[0].start;}
         else{pause = keys[pauseButton];}
 
         // for(int i = 0; i < keys.length; i++)
         // {
-            // if(keys[i])
-            // {
-                // System.out.println("KEY: " + i);
-            // }
+        // if(keys[i])
+        // {
+        // System.out.println("KEY: " + i);
+        // }
         // }
     }
 
