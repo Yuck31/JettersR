@@ -48,27 +48,27 @@ public class SpriteSheet//Slices sprite SHEETS to save memory
     //Level Assets(Backgounds, Tiles, and Objects)
 
     //All Maps
-    public static SpriteSheet tiles = new SpriteSheet("/Levels/GenericTiles/GenericTiles.png", 256, 240);
+    public static SpriteSheet tiles = new SpriteSheet("/Levels/BattleMaps/GenericTiles/GenericTiles.png", 256, 240);
     public static SpriteSheet pressureBlock = new SpriteSheet("/Images/PressureBlock.png", 464, 58);
     //
 
     //Regular Map
-    public static SpriteSheet tiles0 = new SpriteSheet("/Levels/BombFactory/BombFactoryTILES.png", 128, 240);
+    public static SpriteSheet tiles0 = new SpriteSheet("/Levels/BattleMaps/BombFactory4P/BombFactoryTILES.png", 128, 240);
     public static SpriteSheet softBlockDestroy = new SpriteSheet("/Images/SoftBlockDESTROY.png",240);
     //
 
     //Great Wall
-    public static SpriteSheet greatWallTiles = new SpriteSheet("/Levels/GreatWall/GreatWallTILES.png", 176, 192);
+    public static SpriteSheet greatWallTiles = new SpriteSheet("/Levels/BattleMaps/GreatWall/GreatWallTILES.png", 176, 192);
     public static SpriteSheet sandStoneBlockDestroy = new SpriteSheet("/Images/SandStoneBlockDESTROY.png",240);
     //
 
     //Power Zone
-    public static SpriteSheet powerZoneBackground = new SpriteSheet("/Levels/PowerZone/PowerZoneBACKGROUND.png", 896);
-    public static SpriteSheet powerZoneTiles = new SpriteSheet("/Levels/PowerZone/PowerZoneTILES.png", 96, 192);
+    public static SpriteSheet powerZoneBackground = new SpriteSheet("/Levels/BattleMaps/PowerZone4P/PowerZoneBACKGROUND.png", 896);
+    public static SpriteSheet powerZoneTiles = new SpriteSheet("/Levels/BattleMaps/PowerZone4P/PowerZoneTILES.png", 96, 192);
     //
     
     //Rock Garden
-    public static SpriteSheet rockGardenTiles = new SpriteSheet("/Levels/RockGarden/RockGardenTiles.png", 160, 192);
+    public static SpriteSheet rockGardenTiles = new SpriteSheet("/Levels/BattleMaps/RockGarden/RockGardenTiles.png", 160, 192);
     
     //
 
@@ -283,16 +283,16 @@ public class SpriteSheet//Slices sprite SHEETS to save memory
     public static SpriteSheet triFireUpAnim = new SpriteSheet(triFireUp, 0,0, 12, 1, 32);
     public static SpriteSheet triSpeedUpAnim = new SpriteSheet(triSpeedUp, 0,0, 12, 1, 32);
 
-    public static SpriteSheet bombKickAnim = new SpriteSheet(bombKickItem, 0,0, 12, 1, 32);
-    public static SpriteSheet bombThrowAnim = new SpriteSheet(bombThrowItem, 0,0, 12, 1, 32);
+    public static SpriteSheet bombKickAnim = new SpriteSheet(bombKickItem, 0, 0, 12, 1, 32);
+    public static SpriteSheet bombThrowAnim = new SpriteSheet(bombThrowItem, 0, 0, 12, 1, 32);
     public static SpriteSheet superPowerGloveAnim = new SpriteSheet(superPowerGloveItem, 0,0, 12, 1, 32);
-    public static SpriteSheet bombPunchAnim = new SpriteSheet(bombPunchItem, 0,0, 12, 1, 32);
+    public static SpriteSheet bombPunchAnim = new SpriteSheet(bombPunchItem, 0, 0, 12, 1, 32);
     public static SpriteSheet bomberShootAnim = new SpriteSheet(bomberShootItem, 0, 0, 12, 1, 32);
     public static SpriteSheet detonatorAnim = new SpriteSheet(detonatorItem, 0, 0, 12, 1, 32);
-    public static SpriteSheet softBlockPassAnim = new SpriteSheet(softBlockPass, 0,0, 12, 1, 32);
-    public static SpriteSheet bombPassAnim = new SpriteSheet(bombPass, 0,0, 12, 1, 32);
+    public static SpriteSheet softBlockPassAnim = new SpriteSheet(softBlockPass, 0, 0, 12, 1, 32);
+    public static SpriteSheet bombPassAnim = new SpriteSheet(bombPass, 0, 0, 12, 1, 32);
 
-    public static SpriteSheet mergerAnim = new SpriteSheet(mergerItem, 0,0, 12, 1, 32);
+    public static SpriteSheet mergerAnim = new SpriteSheet(mergerItem, 0, 0, 12, 1, 32);
     
     public static SpriteSheet powerBombItemAnim = new SpriteSheet(powerBombItem, 0,0, 12, 1, 32);
     public static SpriteSheet remoteControlAnim = new SpriteSheet(remoteControlItem, 0,0, 12, 1, 32);

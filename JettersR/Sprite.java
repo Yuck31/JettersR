@@ -146,8 +146,11 @@ public class Sprite
     //Rock Garden Tiles
     public static Sprite gardenGrass = new Sprite(32, 0, 0, SpriteSheet.rockGardenTiles);
     public static Sprite gardenMarbleTile = new Sprite(32, 1, 0, SpriteSheet.rockGardenTiles);
-    public static Sprite gardenPole = new Sprite(32, 64, 2, 0, SpriteSheet.rockGardenTiles);
-    public static Sprite gardenTallPole = new Sprite(32, 96, 3, 0, SpriteSheet.rockGardenTiles);
+    public static Sprite gardenPole0 = new Sprite(32, 32, 2, 1, SpriteSheet.rockGardenTiles);
+    public static Sprite gardenPole1 = new Sprite(32, 32, 2, 0, SpriteSheet.rockGardenTiles);
+    public static Sprite gardenTallPole0 = new Sprite(32, 32, 3, 2, SpriteSheet.rockGardenTiles);
+    public static Sprite gardenTallPole1 = new Sprite(32, 32, 3, 1, SpriteSheet.rockGardenTiles);
+    public static Sprite gardenTallPole2 = new Sprite(32, 32, 3, 0, SpriteSheet.rockGardenTiles);
     public static Sprite gardenWallCube = new Sprite(32, 48, 0, 1, SpriteSheet.rockGardenTiles);
 
     public static Sprite gardenWallH1 = new Sprite(32, 48, 4, 0, SpriteSheet.rockGardenTiles);
@@ -565,19 +568,19 @@ public class Sprite
     {//SwapColors[0 = Face; 1 = Torso; 2 = Head; Arms, and Legs; 3 = Hands; 4 = HeadBall & Feet]
         int[] result = new int[width*height];
 
-        int face2 = shadedColor(swapColors[0], -7),
-        face3 = shadedColor(face2, -7),
+        int face2 = Screen.shadedColor(swapColors[0], -7),
+        face3 = Screen.shadedColor(face2, -7),
 
-        darkHeadColor = shadedColor(swapColors[2], -35),
+        darkHeadColor = Screen.shadedColor(swapColors[2], -35),
 
-        hand2 = shadedColor(swapColors[3], -28),
-        hand3 = shadedColor(hand2, -30),
+        hand2 = Screen.shadedColor(swapColors[3], -28),
+        hand3 = Screen.shadedColor(hand2, -30),
 
-        headBall2 = shadedColor(swapColors[4], -28),
-        headBall3 = shadedColor(headBall2, -30),
-        headBall4 = shadedColor(headBall3, -42),
-        headBall5 = shadedColor(headBall4, -28),
-        headBall6 = shadedColor(headBall5, -28);
+        headBall2 = Screen.shadedColor(swapColors[4], -28),
+        headBall3 = Screen.shadedColor(headBall2, -30),
+        headBall4 = Screen.shadedColor(headBall3, -42),
+        headBall5 = Screen.shadedColor(headBall4, -28),
+        headBall6 = Screen.shadedColor(headBall5, -28);
         for(int ya = 0; ya < sprite.height; ya++)
         {
             for(int xa = 0; xa < sprite.width; xa++)
@@ -616,25 +619,6 @@ public class Sprite
         return result;
     }
 
-    public static int shadedColor(int color, int brightness)
-    {
-        int alpha = color & 0xFF000000;
-        int red = (color & 0x00FF0000) + (brightness*0x00010000);
-        int green = (color & 0x0000FF00) + (brightness*0x00000100);
-        int blue = (color & 0x000000FF) + (brightness*0x00000001);
-
-        if(red > 0x00FF0000){red = 0x00FF0000;}//If red is higher than max red, make it equal max red.
-        else if(red < 0x00010000){red = 0x00000000;}//Else if red is lower than one(black), make it black.
-
-        if(green > 0x0000FF00){green = 0x0000FF00;}
-        else if(green < 0x00000100){green = 0x00000000;}
-
-        if(blue > 0x000000FF){blue = 0x000000FF;}
-        else if(blue < 0x00000001){blue = 0x00000000;}
-
-        return alpha | red | green | blue;
-    }
-
     public static Sprite shadedSprite(Sprite sprite, int brightness)
     {
         int[] result = new int[sprite.width * sprite.height];
@@ -642,7 +626,7 @@ public class Sprite
         {
             for(int xa = 0; xa < sprite.width; xa++)
             {
-                result[xa + ya * sprite.width] = shadedColor(sprite.pixels[xa + ya + sprite.width], brightness);
+                result[xa + ya * sprite.width] = Screen.shadedColor(sprite.pixels[xa + ya + sprite.width], brightness);
             }
         }
         return new Sprite(result, sprite.width, sprite.height);

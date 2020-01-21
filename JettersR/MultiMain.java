@@ -14,6 +14,7 @@ public class MultiMain
     public static void main(String[] args)//The same as main(), but multi-threads the game instead
     {
         Game game = new Game();//Creates an instance of Game
+        game.initGame();
         game.frame.setResizable(true);//Determines if the window can be stretched (pixels DO scale with the window)
         game.frame.setTitle(Game.TITLE);//Title
         game.frame.add(game);//Adds the instance of Game

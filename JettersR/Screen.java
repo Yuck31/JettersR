@@ -192,39 +192,6 @@ public class Screen
         }
     }
 
-    public void renderTile(int xp, int yp, Tile tile)
-    {
-        xp -= xOffset;
-        yp -= yOffset;
-        for(int y = 0; y < tile.sprite.height; y++)
-        {
-            int ya = y + yp;
-            for(int x = 0; x < tile.sprite.width; x++)
-            {
-                int xa = x + xp;
-                if(xa < -tile.sprite.SIZE || xa >= width || ya < 0 || ya >= height) break;
-                if (xa < 0) {xa = 0;}
-                int col = tile.sprite.pixels[x+y*tile.sprite.SIZE];
-                if (col != 0x00000000) {pixels[xa+ya*width] = tile.sprite.pixels[x+y*tile.sprite.SIZE];}//Ensures null colors STAY null
-            }
-        }
-    }
-
-    public void renderProjectile(int xp, int yp, Projectile p, double angle) {
-        xp -= xOffset;
-        yp -= yOffset;
-        for (int y = 0; y < p.getSpriteSize(); y++) {
-            int ya = y + yp;
-            for (int x = 0; x < p.getSpriteSize(); x++) {
-                int xa = x + xp;
-                if (xa < -p.getSpriteSize() || xa >= width || ya < 0 || ya >= height) break;
-                if (xa < 0) xa = 0;
-                int col = p.getSprite().pixels[x+y*p.getSprite().SIZE];
-                if (col != 0x00000000) pixels[xa + ya * width] = p.getSprite().pixels[x + y * p.getSprite().SIZE];//Rids of Null Colors
-            }
-        }
-    }
-
     public void renderMosaic(int mosaicMulti)//This is meant to replacate the "Mosaic" effect from the SNES.
     {//What happens is that the game takes the screen into sections, takes the upper-left most pixel of each section, and fills each section with that color of pixel
         if(mosaicMulti <= 0){return;}//If mosaicMulti is less than or equal to zero, cancel the function
@@ -256,7 +223,7 @@ public class Screen
         //Mode 7 is a graphical mode on the SNES that could render sprites like a flat texture and
         //even rotate and stretch sprites(only on background sprites however)
 
-        //Essentially ALL of this function's code is taken (and converted to java) from OLC
+        //Essentially ALL of this function's code is taken (and converted to java) from OLC (javidx9)
         //(One Lone Coder), so special thanks to him and his youtube channel!
         
         float hWorldA = (float)(hDegrees * (Math.PI/180));//Convert Degrees to Radians
@@ -622,7 +589,7 @@ public class Screen
         }
     }
 
-    public int shadedColor(int color, int brightness)
+    public static int shadedColor(int color, int brightness)
     {
         int alpha = color & 0xFF000000;
         int red = (color & 0x00FF0000) + (brightness*0x00010000);
