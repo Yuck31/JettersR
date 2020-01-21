@@ -5,7 +5,7 @@ package JettersR;
  * The Level class manages the updating and rendering of lists of Tiles and Entities.
  * 
  * author: Luke Sullivan
- * Last Edit: 9/21/2019
+ * Last Edit: 1/20/2020
  */
 import JettersR.*;
 import JettersR.Entity.*;
@@ -15,6 +15,8 @@ import JettersR.Entity.Items.*;
 import JettersR.Entity.Particle.*;
 import JettersR.Tiles.*;
 import JettersR.GameStates.*;
+
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
@@ -25,10 +27,15 @@ import java.io.IOException;
 public class Level
 {
     public Screen screen;
+    Random rand = new Random();
     public int[] screenPixels;
     public boolean updating = false;
+    public static boolean showInvis = false;
+    public int startShakeX, startShakeY, shakeX, shakeY;//For screen shake
+    public int shakeTime = 0;
+    public byte shakeFrames = 0;
 
-    protected int width, height;
+    public int width, height;
     public static int minX, maxX, minY, maxY;
     //protected int[] tilesInt;
     public int[][] floorTiles,//[Floor Number] [Tile Array]
@@ -326,6 +333,18 @@ public class Level
     public void update()
     {
         updating = true;
+        if(shakeTime > 0)
+        {
+            shake();
+            shakeTime--;
+            if(shakeTime <= 15 && shakeFrames <= 0)
+            {
+                startShakeX--; startShakeY--;
+                shakeFrames = 10;
+            }
+            if(shakeFrames > 0){shakeFrames--;}
+        }
+        else{startShakeX = 0; startShakeY = 0; shakeX = 0; shakeY = 0;}
         for (int i = 0; i < entities.length; i++)
         {
             for (int j = 0; j < entities[i].size(); j++)
@@ -426,6 +445,20 @@ public class Level
     {
         return projectiles[0];
     }
+    
+    public void shake(int shakeX, int shakeY, int shakeTime)
+    {
+        this.shakeTime = shakeTime;
+        startShakeX = shakeX;
+        startShakeY = shakeY;
+    }
+    
+    public void shake()
+    {
+        if(startShakeX <= 0 || startShakeY <= 0){return;}
+        shakeX = rand.nextInt((startShakeX*2)+1) - (startShakeX+1);
+        shakeY = rand.nextInt((startShakeY*2)+1) - (startShakeY+1);
+    }
 
     public void render(int xScrool, int yScrool, int zScrool, Screen screen)//This ONLY renders tiles and entities ON SCREEN
     {
@@ -439,7 +472,7 @@ public class Level
             }
         }
         this.screen = screen;
-        screen.setOffset(xScrool, yScrool);
+        screen.setOffset(xScrool+shakeX, yScrool+shakeY);
         int x0 = (xScrool) >> 5;
         int x1 = (xScrool + screen.width + 32) >> 5;
         int y0 = (yScrool-zScrool) >> 5;
@@ -453,15 +486,14 @@ public class Level
                 {
                     if(getTile(x,y,z,floorTiles) != Tile.voidTile /**&& !getTile(x,y,z,floorTiles).isSlope()*/ && !getFloorRendered(x,y,z))
                     {
-                        if(getTile(x,y,z,floorTiles).isSlope() &&
-                        (getTile(x,y-1,z, wallTiles) != Tile.voidTile && getTile(x,y-1,z, wallTiles) != Tile.invisableWall))
+                        if(getTile(x,y,z,floorTiles).isSlope() && getTile(x,y-1,z, wallTiles) != Tile.voidTile)
                         {
-                            getTile(x,y-1,z, wallTiles).render(x,y,z,screen);
+                            getTile(x,y-1,z, wallTiles).render(x,y,z,showInvis,screen);
                             setWallRendered(x,y-1,z,true);
                         }
                         if(!getTile(x,y,z,floorTiles).isSlope())
                         {
-                            getTile(x,y,z,floorTiles).render(x,y,z,screen);//Renders floor Tiles\
+                            getTile(x,y,z,floorTiles).render(x,y,z,showInvis,screen);//Renders floor Tiles
                             setFloorRendered(x,y,z,true);
                         }
                     }
@@ -474,21 +506,21 @@ public class Level
                 {
                     for(int z0 = z; z0 < floorTiles.length; z0++)
                     {
-                        if(getTile(x,y,z0, floorTiles) != Tile.voidTile || (getTile(x,y,z0, wallTiles) != Tile.voidTile && getTile(x,y,z0, wallTiles) != Tile.invisableWall))
+                        if(getTile(x,y,z0, floorTiles) != Tile.voidTile || (getTile(x,y,z0, wallTiles) != Tile.voidTile))
                         {
                             if(getTile(x,y-1,z0+1, floorTiles) == Tile.voidTile
                             || getTile(x,y+1,z0+1, floorTiles) == Tile.voidTile)
                             {
                                 if(!getWallRendered(x,y,z0))
                                 {
-                                    if(getTile(x,y,z0, wallTiles) != Tile.voidTile && getTile(x,y,z0, wallTiles) != Tile.invisableWall)
+                                    if(getTile(x,y,z0, wallTiles) != Tile.voidTile)
                                     {
                                         if(getTile(x,y-1,z0, floorTiles) != Tile.voidTile && z0 != z && !getFloorRendered(x,y,z0))
                                         {
-                                            getTile(x,y-1,z0, floorTiles).render(x,y-1,z0,screen);
+                                            getTile(x,y-1,z0, floorTiles).render(x,y-1,z0,showInvis,screen);
                                             setFloorRendered(x,y-1,z0,true);
                                         }
-                                        getTile(x,y,z0, wallTiles).render(x,y,z0,screen);
+                                        getTile(x,y,z0, wallTiles).render(x,y,z0,showInvis,screen);
                                         //if(!getTile(x,y+1,z0, floorTiles).isFloor())
                                         //{
                                         setWallRendered(x,y,z0,true);
@@ -496,7 +528,7 @@ public class Level
                                     }
                                     else if(getTile(x,y,z0, floorTiles).isSlope() && !getFloorRendered(x,y,z0))
                                     {
-                                        getTile(x,y,z0, floorTiles).render(x,y,z0,screen);
+                                        getTile(x,y,z0, floorTiles).render(x,y,z0,showInvis,screen);
                                         setFloorRendered(x,y,z0,true);
                                     }
                                 }
@@ -719,8 +751,12 @@ public class Level
         if ((x < 0 || y < 0 || x >= width || y >= height || z >= tiles.length || z < 0)
         || ((z < tiles.length && z >= 0) && tiles[z][x+y*width] == 0))
         {return Tile.voidTile;}//To prevent Out of Bounds crash
+        else{return getTile(tiles[z][x+y*width]);}
+    }
 
-        switch(tiles[z][x+y*width])
+    public Tile getTile(int color)
+    {
+        switch(color)
         {
             //Regular Map Tiles
             case 0xFF10811D: return Tile.green1;
@@ -781,8 +817,11 @@ public class Level
             case 0xFFA09083: return Tile.rockGardenWallV1;
             case 0xFFA09084: return Tile.rockGardenWallV2;
             case 0xFFA09085: return Tile.rockGardenWallV3;
-            case 0xFFCFBE9A: return Tile.rockGardenPole;
-            case 0xFFE2D19F: return Tile.rockGardenTallPole;
+            case 0xFFCFBE9A: return Tile.rockGardenPole0;
+            case 0xFFCFBE9B: return Tile.rockGardenPole1;
+            case 0xFFE2D19F: return Tile.rockGardenTallPole0;
+            case 0xFFE2D1A0: return Tile.rockGardenTallPole1;
+            case 0xFFE2D1A1: return Tile.rockGardenTallPole2;
             //
 
             //All maps
@@ -839,7 +878,26 @@ public class Level
 
     public void setTile(int x, int y, int z, int[][] tiles, int color)
     {
-        tiles[z][x+y*width] = color;
+        if(x < 0 || x >= width || y < 0 || y >= height || z < 0 || z >= floorTiles.length){return;}
+        else{tiles[z][x+y*width] = color;}
+    }
+
+    public void setTile(int x, int y, int z, int color)
+    {
+        if(x < 0 || x >= width || y < 0 || y >= height || z < 0 || z >= floorTiles.length){return;}
+        else
+        {
+            if(color == 0x00000000)
+            {
+                floorTiles[z][x+y*width] = color;
+                wallTiles[z][x+y*width] = color;
+            }
+            else if(getTile(color).solid())
+            {
+                wallTiles[z][x+y*width] = color;
+            }
+            else{floorTiles[z][x+y*width] = color;}
+        }
     }
 
     public void destroyTile(int x, int y, int z, int[][] tiles)
