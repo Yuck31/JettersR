@@ -1,9 +1,9 @@
 package JettersRServer;
 /**
- * Write a description of class Server here.
+ * Server object (eventually)
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author: Luke Sullivan
+ * @1/20/20
  */
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -27,6 +27,17 @@ public class Server
     {
         this.port = port;
     }
+    
+    public int getPort()
+    {
+        return port;
+    }
+    
+    public void setPort()
+    {
+        this.port = port;
+        //Restart server with new port
+    }
 
     public void start()
     {
@@ -41,7 +52,7 @@ public class Server
 
         listening = true;
 
-        listenThread = new Thread(() -> listen(), "JettersRServer-ListenThread");
+        listenThread = new Thread(this::listen, "JettersRServer-ListenThread");
         listenThread.start();
     }
 

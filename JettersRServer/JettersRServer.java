@@ -1,9 +1,9 @@
 package JettersRServer;
 /**
- * Write a description of class JettersRServer here.
+ * Server for the game (eventually)
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author: Luke Sullivan
+ * @1/20/20
  */
 import java.net.InetAddress;
 import java.net.UnknownHostException;
