@@ -69,7 +69,7 @@ public class DangerousBomb extends Bomb
 
         if(remote)
         {
-            idleBomb = new AnimatedSprite(SpriteSheet.remoteDangerousBomb,40,40,4, 10);
+            idleBomb = new AnimatedSprite(SpriteSheet.remoteDangerousBombAnim,40,40, 4, 10);
             bombPunched = new AnimatedSprite(SpriteSheet.DangerousBombPunched,40,40,15, 1);
             bombBeep = new AnimatedSprite(SpriteSheet.remoteDangerousBombBeep, 40, 40, 2, 2);
         }
@@ -130,15 +130,17 @@ public class DangerousBomb extends Bomb
 
         if(fires <= 1)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_dangerousExplosion1));
+            Game.am.add(AudioManager.sounds_dangerousExplosion1);
         }
         else if(fires <= 2)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_dangerousExplosion2));
+            Game.am.add(AudioManager.sounds_dangerousExplosion2);
+            level.shake(1, 1, 30);
         }
         else
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_dangerousExplosion3));
+            Game.am.add(AudioManager.sounds_dangerousExplosion3);
+            level.shake(2, 2, 30);
         }
 
         level.add(new ParticleManager((int)(bx+bounds.x+(bounds.width/2)),(int)(by+bounds.y+(bounds.height)),z,(fires*4),40,ParticleManager.particleType.GRAYCLOUD1));

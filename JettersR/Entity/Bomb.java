@@ -152,7 +152,7 @@ public class Bomb extends Projectile
             if((!activated && !beingHeld && !hopping) && player.input.remote[player.playerNum])
             {
                 activated = true;
-                Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombBeep));
+                Game.am.add(AudioManager.sounds_bombBeep);
             }
 
             if(activated && (!hopping && !beingHeld)){time--; hopTime = 15; bombBeep.update();}
@@ -204,7 +204,7 @@ public class Bomb extends Projectile
             if(((!floorCollision(this, dir.NONE, 0, 0, 0, z).isFloor() && tileCollision(this, dir.NONE, 0, 0, 0, z-1).solid())
             || collisionType(eCols = entityCollisions(0, 0, z-1), CollisionType.SOLID)))
             {
-                Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombBounce));
+                Game.am.add(AudioManager.sounds_bombBounce);
                 hopTime = 15;
                 hop(dirX, dirY, forced, forceMulti);
             }
@@ -275,7 +275,7 @@ public class Bomb extends Projectile
             bx = (((bx+22)/32)*32)-4;
             by = (((by+26)/32)*32)-3;
             hopTime = 15;
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_bombBounce));
+            Game.am.add(AudioManager.sounds_bombBounce);
         }
         //else if((hopTime <= 0 && (entityCollision (0, 0,z-1) < 2 && !tileCollision (0, 0, z-1).solid()) && hopping) || ((forceMulti > 1 && (hopTime <= 10 && hopTime >= 8)) && getTileFloor((int)nbx, (int)nby, z-1) < z-1))
         else if(hopTime <= 0 && (!collisionType(entityCollisions(0, 0, z-1), CollisionType.SOLID) && !tileCollision (this, dir.NONE, 0, 0, 0, z-1).solid()) && hopping)
@@ -300,18 +300,20 @@ public class Bomb extends Projectile
     {
         bx = (((bx+22)/32)*32)-4;
         by = (((by+26)/32)*32)-3;
-
+        
         if(fires <= 3)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_explosion1));
+            Game.am.add(AudioManager.sounds_explosion1);
         }
         else if(fires <= 6)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_explosion2));
+            Game.am.add(AudioManager.sounds_explosion2);
+            level.shake(1, 1, 30);
         }
         else// if(fires <= 10)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_explosion3));
+            Game.am.add(AudioManager.sounds_explosion3);
+            level.shake(2, 2, 30);
         }
 
         int firesA = fires;
@@ -456,7 +458,7 @@ public class Bomb extends Projectile
         if(hopping)
         {
             sprite = bombPunched.getSprite();
-            screen.renderSprite((int)x,(int)(y - 6) - ((z-1) * 16), sprite, true);
+            screen.renderSprite((int)x,(int)(y - 6) - ((z) * 16), sprite, true);
         }
         else if(!hopping && !beingHeld && !activated)
         {
@@ -476,7 +478,7 @@ public class Bomb extends Projectile
         if(hopping)
         {
             sprite = bombPunched.getSprite();
-            screen.renderSprite((int)(x*scale),(int)(((y-6)-((z-1)*16))*scale), Sprite.scale(sprite,scale), true);
+            screen.renderSprite((int)(x*scale),(int)(((y-6)-((z)*16))*scale), Sprite.scale(sprite,scale), true);
         }
         else if(!hopping && !beingHeld && !activated)
         {

@@ -108,54 +108,6 @@ public class PierceBomb extends Bomb
         }
     }
 
-    // @Override
-    // public void move()
-    // {
-        // if(entityCollision(nx,ny,z) >= 2 && rolling)
-        // {
-            // rolling = false;
-            // bx = (((bx+22)/32)*32)-4;
-            // by = (((by+26)/32)*32)-3;
-        // }
-
-        // if(hopping && hopTime >= 0)
-        // {
-            // hop(dirX, dirY, forced, forceMulti);
-        // }
-
-        // if(rolling)
-        // {
-            // roll(dirX, dirY);
-        // }
-
-        // if(hopTime <= 0)
-        // {
-            // bx = (((bx+22)/32)*32)-4;
-            // by = (((by+26)/32)*32)-3;
-            // x = (((bx+22)/32)*32)-4;
-            // y = (((by+26)/32)*32)-3;
-        // }
-        // if((hopTime <= 0)
-        // && (((entityCompare(0, 0, z-1) != null && entityCompare(0, 0,z-1).solid())
-                // || playerDetect(0,0,z-1) != null)
-            // || tileCollision(this, dir.NONE, 0, 0, 0, z-1).solid()))
-        // {
-            // if(playerDetect(0,0,z-1) != null){playerDetect(0,0,z-1).stun();}
-            // bx = (((bx+22)/32)*32)-4;
-            // by = (((by+26)/32)*32)-3;
-            // hopTime = 15;
-            // sounds[sounds_bombBounce].play();
-        // }
-        // else if(hopTime <= 0 && ((entityCompare(0, 0, z-1) == null || !entityCompare(0, 0, z-1).solid()) && !tileCollision (this, dir.NONE, 0, 0, 0, z-1).solid()) && hopping)
-        // {
-            // hopping = false;
-            // bx = (((bx+22)/32)*32)-4;
-            // by = (((by+26)/32)*32)-3;
-            // sprite = Sprite.Bomb0;
-            // if(itemDetect(0,0, z) != null){itemDetect(0,0, z).Crush();}
-        // }
-    // }
-
     public void Detonate()
     {
         bx = (((bx+22)/32)*32)-4;
@@ -163,15 +115,17 @@ public class PierceBomb extends Bomb
 
         if(fires <= 3)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_pierceExplosion1));
+            Game.am.add(AudioManager.sounds_pierceExplosion1);
         }
         else if(fires <= 6)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_pierceExplosion2));
+            Game.am.add(AudioManager.sounds_pierceExplosion2);
+            level.shake(1, 1, 30);
         }
-        else// if(fires <= 10)
+        else if(fires <= 10)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_pierceExplosion2));
+            Game.am.add(AudioManager.sounds_pierceExplosion3);
+            level.shake(2, 2, 30);
         }
 
         int firesA = fires;

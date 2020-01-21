@@ -144,59 +144,6 @@ public class ClusterBomb extends Bomb
         }
     }
 
-    // @Override
-    // public void move()
-    // {
-        // if(entityCollision(nx,ny, z) >= 2 && rolling)
-        // {
-            // rolling = false;
-            // bx = (((bx+22)/32)*32)-4;
-            // by = (((by+26)/32)*32)-3;
-        // }
-
-        // if(hopping && hopTime >= 0)
-        // {
-            // hop(dirX, dirY, forced, forceMulti);
-        // }
-
-        // if(rolling)
-        // {
-            // roll(dirX, dirY);
-        // }
-
-        // if(hopTime <= 0)
-        // {
-            // bx = (((bx+22)/32)*32)-4;
-            // by = (((by+26)/32)*32)-3;
-            // x = (((bx+22)/32)*32)-4;
-            // y = (((by+26)/32)*32)-3;
-        // }
-        // if(hopTime <= 0 && ((entityCollision (0, 0,z-1) >= 2  || playerDetect(0,0,z-1) != null) || tileCollision(this, dir.NONE, 0, 0, 0, z-1).solid()))
-        // Up,Down,Left,Right
-        // ( (tileCollision((int)(x+(startBoundsX-1))/32, tyUP,z-1).solid() && tileCollision((int)(x+(startBoundsX-1)+bounds.width)/32, tyUP,z-1).solid())   ||   (tileCollision((int)(x+(startBoundsX-1))/32, tyDOWN,z-1).solid() && tileCollision((int)(x+(startBoundsX-1)+bounds.width)/32, tyDOWN,z-1).solid()) ||
-        // (tileCollision(txLEFT, (int)(y+(startBoundsY))/32,z-1).solid() && tileCollision(txLEFT, (int)(y+(startBoundsY)+bounds.height)/32,z-1).solid())   ||   (tileCollision(txRIGHT, (int)(y+startBoundsY)/32,z-1).solid() && tileCollision(txRIGHT, (int)(y+(startBoundsY)+bounds.height)/32,z-1).solid())   )))
-
-        // {
-            // if(playerDetect(0,0,z-1) != null){playerDetect(0,0,z-1).stun();}
-            // bx = (((bx+22)/32)*32)-4;
-            // by = (((by+26)/32)*32)-3;
-            // hopTime = 16;
-            // sounds[sounds_bombBounce].play();
-        // }
-        // else if(hopTime <= 0 && ((entityCompare(0, 0, z-1) == null || !entityCompare(0, 0, z-1).solid()) && !tileCollision (this, dir.NONE, 0, 0, 0, z-1).solid()) && hopping)
-        // {
-            // hopping = false;
-            // bx = (((bx+22)/32)*32)-4;
-            // by = (((by+26)/32)*32)-3;
-            // if(tileCollision(this, dir.NONE, 0, (int)nx, (int)ny, z-1).getZ() <= z-1){z = z-1;}
-            // else{z = 0;}
-            // sprite = Sprite.Bomb0;
-            // z = z-1;
-            // if(itemDetect(0,0, z) != null){itemDetect(0,0, z).Crush();}
-            // hopTime = 15;
-        // }
-    // }
-
     public void Detonate()
     {
         bx = (((bx+22)/32)*32)-4;//Centers position for proper explosions
@@ -204,15 +151,17 @@ public class ClusterBomb extends Bomb
 
         if(fires <= 3)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_explosion1));
+            Game.am.add(AudioManager.sounds_explosion1);
         }
         else if(fires <= 6)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_explosion2));
+            Game.am.add(AudioManager.sounds_explosion2);
+            level.shake(1, 1, 30);
         }
-        else if(fires <= 10)
+        else// if(fires <= 10)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_explosion3));
+            Game.am.add(AudioManager.sounds_explosion3);
+            level.shake(2, 2, 30);
         }
 
         level.add(new ParticleManager((int)(bx+bounds.x+(bounds.width/2)),(int)(by+bounds.y+(bounds.height)),z,(fires*4),40,ParticleManager.particleType.GRAYCLOUD1));
@@ -281,7 +230,7 @@ public class ClusterBomb extends Bomb
         if(hopping)
         {
             sprite = bombPunched.getSprite();
-            screen.renderSprite((int)x,(int)(y - 6) - ((z-1) * 16), sprite, true);
+            screen.renderSprite((int)x,(int)(y - 6) - ((z) * 16), sprite, true);
         }
         else if(activated)
         {
@@ -300,7 +249,7 @@ public class ClusterBomb extends Bomb
         if(hopping)
         {
             sprite = bombPunched.getSprite();
-            screen.renderSprite((int)(x*scale),(int)(((y-6)-((z-1)*16))*scale), Sprite.scale(sprite,scale), true);
+            screen.renderSprite((int)(x*scale),(int)(((y-6)-((z)*16))*scale), Sprite.scale(sprite,scale), true);
         }
         else if(activated)
         {

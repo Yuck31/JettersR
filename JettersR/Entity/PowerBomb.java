@@ -112,8 +112,9 @@ public class PowerBomb extends Bomb
         bx = (((bx+22)/32)*32)-4;
         by = (((by+26)/32)*32)-3;
 
-        Game.am.add(AudioManager.audioPlayer(AudioManager.sounds_explosion3));
-
+        Game.am.add(AudioManager.sounds_explosion3);
+        level.shake(2, 2, 30);
+        
         level.add(new ParticleManager((int)(bx+bounds.x+(bounds.width/2)),(int)(by+bounds.y+(bounds.height)),z,(fires*4),40,ParticleManager.particleType.GRAYCLOUD1));
         Projectile p = new BombExplosion(bx-28,by-28,this.z,0,fires,0);
         level.add(p);

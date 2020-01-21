@@ -163,7 +163,7 @@ public class Entity implements Cloneable//An Entity in this project is ANYTHING 
         Entity entity = new Entity(0, 0, 0);
         for(Entity e : level.entities[za])
         {
-            if(e.equals(this))
+            if(e.equals(this) || (!e.solid() && !e.breakable() && !e.hazard()))
             {
                 continue;//Ensures an entity dosn't check with itself
             }
@@ -199,7 +199,7 @@ public class Entity implements Cloneable//An Entity in this project is ANYTHING 
         byte entCount = 0;
         for(Entity e : level.entities[za])
         {
-            if(e.equals(this))
+            if(e.equals(this) || (!e.solid() && !e.breakable() && !e.hazard()))
             {
                 continue;//Ensures an entity dosn't check with itself
             }
@@ -302,7 +302,7 @@ public class Entity implements Cloneable//An Entity in this project is ANYTHING 
     {
         for(Projectile p : level.projectiles[za])
         {
-            if(p.equals(this))
+            if(p.equals(this) || (!p.solid() && !p.breakable() && !p.hazard()))
             {
                 continue;//Ensures an entity dosn't collide with itself
             }
