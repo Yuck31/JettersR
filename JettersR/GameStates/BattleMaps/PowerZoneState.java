@@ -67,11 +67,13 @@ public class PowerZoneState extends BattleMapState
         playerSpawn4 = new TileCoordinate(18,11,-5,-12);
         if(gsm.playerAmount > 4)
         {
-            level = new Level("/Levels/PowerZone/PowerZoneFloor_8P.png", "/Levels/PowerZone/PowerZoneWalls_8P.png");
+            level = new Level("/Levels/BattleMaps/PowerZone8P/Floors/PowerZone8P_Floor0.png",
+                              "/Levels/BattleMaps/PowerZone8P/Walls/PowerZone8P_Walls0.png");
         }
         else
         {
-            level = new Level("/Levels/PowerZone/PowerZoneFloor_4P.png", "/Levels/PowerZone/PowerZoneWalls_4P.png");
+            level = new Level("/Levels/BattleMaps/PowerZone4P/Floors/PowerZone4P_Floor0.png",
+                              "/Levels/BattleMaps/PowerZone4P/Walls/PowerZone4P_Walls0.png");
             playerSpawn = new TileCoordinate(7,3,-5,-12);
             playerSpawn2 = new TileCoordinate(21,13,-5,-12);
         }

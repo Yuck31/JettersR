@@ -12,6 +12,8 @@ import java.util.Random;
 import java.util.HashMap;
 public class RockGardenState extends BattleMapState
 {
+    String[] floors = new String[3];
+    String[] walls = new String[3];
     public RockGardenState(GameStateManager gsm, Keyboard key, int timeMinute, int timeSecond, byte[] playerWins)
     {
         super(gsm, key, timeMinute, timeSecond, playerWins);
@@ -40,7 +42,14 @@ public class RockGardenState extends BattleMapState
 
     public void init()
     {
-        level = new Level("/Levels/RockGarden/RockGardenFloor.png", "/Levels/RockGarden/RockGardenWalls.png");
+        floors[0] = "/Levels/BattleMaps/RockGarden/Floors/RockGarden_Floor0.png";
+        floors[1] = "/Levels/BattleMaps/RockGarden/Floors/RockGarden_Floor1.png";
+        floors[2] = "/Levels/BattleMaps/RockGarden/Floors/RockGarden_Floor2.png";
+        walls[0] = "/Levels/BattleMaps/RockGarden/Walls/RockGarden_Walls0.png";
+        walls[1] = "/Levels/BattleMaps/RockGarden/Walls/RockGarden_Walls1.png";
+        walls[2] = "/Levels/BattleMaps/RockGarden/Walls/RockGarden_Walls2.png";
+        
+        level = new Level(floors, walls, 3);
 
         //generateBlocks();
 

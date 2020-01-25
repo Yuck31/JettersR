@@ -70,14 +70,14 @@ public class FirstMissionState extends GameState
 
     public void init()
     {
-        floors[0] = "/Levels/GenericTiles/TestLevelFloor0.png";
-        floors[1] = "/Levels/GenericTiles/TestLevelFloor1.png";
-        floors[2] = "/Levels/GenericTiles/TestLevelFloor2.png";
-        floors[3] = "/Levels/GenericTiles/TestLevelFloor3.png";
-        walls[0] = "/Levels/GenericTiles/TestLevelWalls0.png";
-        walls[1] = "/Levels/GenericTiles/TestLevelWalls1.png";
-        walls[2] = "/Levels/GenericTiles/TestLevelWalls2.png";
-        walls[3] = "/Levels/GenericTiles/TestLevelWalls3.png";
+        floors[0] = "/Levels/StoryMissions/TestLevel/Floors/TestLevel_Floor0.png";
+        floors[1] = "/Levels/StoryMissions/TestLevel/Floors/TestLevel_Floor1.png";
+        floors[2] = "/Levels/StoryMissions/TestLevel/Floors/TestLevel_Floor2.png";
+        floors[3] = "/Levels/StoryMissions/TestLevel/Floors/TestLevel_Floor3.png";
+        walls[0] = "/Levels/StoryMissions/TestLevel/Walls/TestLevel_Walls0.png";
+        walls[1] = "/Levels/StoryMissions/TestLevel/Walls/TestLevel_Walls1.png";
+        walls[2] = "/Levels/StoryMissions/TestLevel/Walls/TestLevel_Walls2.png";
+        walls[3] = "/Levels/StoryMissions/TestLevel/Walls/TestLevel_Walls3.png";
         level = new Level(floors, walls, 4);
         //level.generateEntities("/Levels/StoryMissions/FirstMission/FirstMissionEntities.png");
         level.setLoopBounds(minX, maxX, minY, maxY);
@@ -85,10 +85,9 @@ public class FirstMissionState extends GameState
         //generateBlocks();
 
         uiManager = Game.getUIManager();
-        TileCoordinate playerSpawn = new TileCoordinate(148,225,-5,-12);
+        TileCoordinate playerSpawn = new TileCoordinate(125,216,-5,-12);
         player = new Player(playerSpawn.x(), playerSpawn.y(), 1, key, (byte)0, uiManager);
-        TileCoordinate playerSpawn2 = new TileCoordinate(149,226,-5,-12);
-
+        TileCoordinate playerSpawn2 = new TileCoordinate(125,217,-5,-12);
         player.init(level);
         //player2.init(level);
         //player3.init(level);

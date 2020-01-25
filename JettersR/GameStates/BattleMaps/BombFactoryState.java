@@ -67,13 +67,15 @@ public class BombFactoryState extends BattleMapState
         //Creates correct size level
         if(gsm.playerAmount > 4)
         {
-            level = new Level("/Levels/BombFactory/BombFactoryFloor_8P.png", "/Levels/BombFactory/BombFactoryWalls_8P.png");
-            level.setItemSpaces("/Levels/BombFactory/BombFactoryItemSpaces_8P.png");
+            level = new Level("/Levels/BattleMaps/BombFactory8P/Floors/BombFactory8P_Floor0.png",
+                              "/Levels/BattleMaps/BombFactory8P/Walls/BombFactory8P_Walls0.png");
+            //level.setItemSpaces("/Levels/BattleMaps/BombFactory8P/BombFactoryItemSpaces_8P.png");
         }
         else
         {
-            level = new Level("/Levels/BombFactory/BombFactoryFloor_4P.png", "/Levels/BombFactory/BombFactoryWalls_4P.png");
-            level.setItemSpaces("/Levels/BombFactory/BombFactoryItemSpaces_4P.png");
+            level = new Level("/Levels/BattleMaps/BombFactory4P/Floors/BombFactory4P_Floor0.png",
+                              "/Levels/BattleMaps/BombFactory4P/Walls/BombFactory4P_Walls0.png");
+            //level.setItemSpaces("/Levels/BattleMaps/BombFactory4P/BombFactoryItemSpaces_4P.png");
             playerSpawn = new TileCoordinate(7,3,-5,-12);//Changes initial spawns to the 4-Player Spawns
             playerSpawn2 = new TileCoordinate(21,13,-5,-12);
         }
@@ -122,7 +124,11 @@ public class BombFactoryState extends BattleMapState
         }
         
         setWins();
-        if(matchPoint() && !SDFlag){music = AudioManager.music_euroBomberBattle;}
+        if(matchPoint())
+        {
+            music = AudioManager.music_euroBomberBattle;
+            SDmusic = AudioManager.music_euroBomberBattleSD;
+        }
         super.init();
     }
 

@@ -9,14 +9,14 @@ import JettersR.GameStates.BattleMaps.*;
 
 public class GameStateManager
 {
-    private GameState[] gameStates;
+    protected GameState[] gameStates;
 
     public ItemTipsBoard itemTips;
     public Font font;
     public int reduction = 0;
 
-    private int currentState = 0;
-    private int previousState = 0;
+    protected int currentState = 0;
+    protected int previousState = 0;
     //public static int minX, maxX, minY, maxY;
 
     public static final int NUMGAMESTATES = 9;
@@ -60,7 +60,7 @@ public class GameStateManager
     //
     public boolean renderUI = true;
 
-    public GameStateManager(Keyboard key)
+    public GameStateManager(Keyboard key, int state)
     {
         this.key = key;
         itemTips = new ItemTipsBoard(key);
@@ -71,12 +71,14 @@ public class GameStateManager
         }
         gameStates = new GameState[NUMGAMESTATES];
 
-        currentState = MENUSTATE;
-        loadState(currentState);
+        //currentState = MENUSTATE;
+        currentState = state;
+        loadState(state);
     }
 
     private void loadState(int state)
     {
+        if(state < 0){return;}
         switch(state)
         {
             case MENUSTATE: gameStates[state] = new MenuState(this, key); break;
@@ -122,7 +124,7 @@ public class GameStateManager
         this.timeSecond = timeSecond;
     }
 
-    private void unloadState(int state)
+    protected void unloadState(int state)
     {
         gameStates[state] = null;
     }
@@ -151,7 +153,7 @@ public class GameStateManager
         }        
         else if((key.bomb[0] && currentState > VICTORYSCREENSTATE && keyTime <= 0) && paused && menuNum == 0)
         {
-            Game.am.add(AudioManager.audioPlayer(AudioManager.cancel));
+            Game.am.add(AudioManager.cancel);
             unPause();
             menuNum = 0;
             currentOption = 0;
@@ -171,7 +173,7 @@ public class GameStateManager
             else if((key.up[0] || key.down[0] || key.left[0] || key.right[0]) && keyTime <= 0)
             {
                 if(menuNum != 1 || !(key.up[0] || key.down[0]))
-                {Game.am.add(AudioManager.audioPlayer(AudioManager.select0));}
+                {Game.am.add(AudioManager.select0);}
             }
 
             switch(menuNum)
@@ -224,7 +226,7 @@ public class GameStateManager
                 itemTips.update();
                 if(key.bomb[0] && keyTime == 0)
                 {
-                    Game.am.add(AudioManager.audioPlayer(AudioManager.cancel));
+                    Game.am.add(AudioManager.cancel);
                     menuNum = 0;
                     keyTime = 2;
                 }
@@ -234,7 +236,7 @@ public class GameStateManager
 
     public void select()
     {
-        Game.am.add(AudioManager.audioPlayer(AudioManager.confirm0));
+        Game.am.add(AudioManager.confirm0);
         switch(currentOption)
         {
             case 0:

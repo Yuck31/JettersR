@@ -44,7 +44,8 @@ public class WideMapState extends BattleMapState
         TileCoordinate playerSpawn2 = new TileCoordinate(37,17,-5,-12);
         TileCoordinate playerSpawn3 = new TileCoordinate(19,9,-5,-12);
 
-        level = new Level("/Levels/12PlayerMap/12PlayerMapFloor.png", "/Levels/12PlayerMap/12PlayerMapWalls.png");
+        level = new Level("/Levels/BattleMaps/12PlayerMap/Floors/12PlayerMap_Floor0.png",
+                          "/Levels/BattleMaps/12PlayerMap/Walls/12PlayerMap_Walls0.png");
 
         //generateBlocks();
 

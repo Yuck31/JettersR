@@ -46,17 +46,17 @@ public class GreatWallState extends BattleMapState
 
     public void init()
     {
-        floors[0] = "/Levels/GreatWall/GreatWallFloor1.png";
-        floors[1] = "/Levels/GreatWall/GreatWallFloor2.png";
-        floors[2] = "/Levels/GreatWall/GreatWallFloor3.png";
-        walls[0] = "/Levels/GreatWall/GreatWallWalls1.png";
-        walls[1] = "/Levels/GreatWall/GreatWallWalls2.png";
-        walls[2] = "/Levels/GreatWall/GreatWallWalls3.png";
+        floors[0] = "/Levels/BattleMaps/GreatWall/Floors/GreatWall_Floor0.png";
+        floors[1] = "/Levels/BattleMaps/GreatWall/Floors/GreatWall_Floor1.png";
+        floors[2] = "/Levels/BattleMaps/GreatWall/Floors/GreatWall_Floor2.png";
+        walls[0] = "/Levels/BattleMaps/GreatWall/Walls/GreatWall_Walls0.png";
+        walls[1] = "/Levels/BattleMaps/GreatWall/Walls/GreatWall_Walls1.png";
+        walls[2] = "/Levels/BattleMaps/GreatWall/Walls/GreatWall_Walls2.png";
         level = new Level(floors, walls, 3);
 
-        itemSpaces[0] = "/Levels/GreatWall/GreatWallItemSpaces1.png";
-        itemSpaces[2] = "/Levels/GreatWall/GreatWallItemSpaces3.png";
-        level.setItemSpaces(itemSpaces);
+        //itemSpaces[0] = "/Levels/GreatWall/GreatWallItemSpaces1.png";
+        //itemSpaces[2] = "/Levels/GreatWall/GreatWallItemSpaces3.png";
+        //level.setItemSpaces(itemSpaces);
 
         generateBlocks();
 

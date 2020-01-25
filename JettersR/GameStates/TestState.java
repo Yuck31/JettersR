@@ -12,6 +12,7 @@ import JettersR.Entity.Mob.*;
 import JettersR.Entity.*;
 import JettersR.Entity.Statics.*;
 import JettersR.Mode7Entities.Mobs.*;
+import JettersR.Audio.*;
 
 import java.util.Random;
 public class TestState extends GameState
@@ -82,33 +83,38 @@ public class TestState extends GameState
         this.uiManager = new UIManager();
         player = new Mode7PlayerJet(0,0,0,key,uiManager);
         this.level.add(player);
+        
+        Game.am.setOGG(AudioManager.oggPlayer(AudioManager.music_onlineLobby));
+        Game.am.playOGG();
     }
 
     public void update()
     {
+        float boost = 1f;
+        if(key.punch[0]){boost = 3f;}
         if(keyTime > 0){keyTime--;}
         if(!gsm.paused)
         {
             this.level.update();
             if(key.up[0])
             {
-                x += Math.cos(a * (Math.PI/180)) * 10f;
-                y += Math.sin(a * (Math.PI/180)) * 10f;
+                x += Math.cos(a * (Math.PI/180)) * 10f * boost;
+                y += Math.sin(a * (Math.PI/180)) * 10f * boost;
             }
             else if(key.down[0])
             {
-                x -= Math.cos(a * (Math.PI/180)) * 10f;
-                y -= Math.sin(a * (Math.PI/180)) * 10f;
+                x -= Math.cos(a * (Math.PI/180)) * 10f * boost;
+                y -= Math.sin(a * (Math.PI/180)) * 10f * boost;
             }
             if(key.swapR[0])
             {
-                x += Math.cos((a * ((Math.PI/180))+90)) * 10f;
-                y += Math.sin((a * ((Math.PI/180))+90)) * 10f;
+                x += Math.cos((a * ((Math.PI/180))+90)) * 10f * boost;
+                y += Math.sin((a * ((Math.PI/180))+90)) * 10f * boost;
             }
             else if(key.swapL[0])
             {
-                x -= Math.cos((a * ((Math.PI/180))+90)) * 10f;
-                y -= Math.sin((a * ((Math.PI/180))+90)) * 10f;
+                x -= Math.cos((a * ((Math.PI/180))+90)) * 10f * boost;
+                y -= Math.sin((a * ((Math.PI/180))+90)) * 10f * boost;
             }
 
             if(key.right[0])
@@ -144,12 +150,13 @@ public class TestState extends GameState
             if(vertOff > 90){vertOff = 90;}
             else if(vertOff < -90){vertOff = -90;}
             
-            System.out.println(x + ", " + y + ", " + a + ", " +  fNear + ", " + fFar + ", " + FoVoffset + ",  " + vertOff);
+            //System.out.println(x + ", " + y + ", " + a + ", " +  fNear + ", " + fFar + ", " + FoVoffset + ",  " + vertOff);
         }
     }
 
     public void quitGame()
     {
+        Game.am.stopOGG();
         uiManager.remove();
         gsm.paused = false;
         System.gc();

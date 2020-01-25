@@ -4,7 +4,7 @@ package JettersR.GameStates;
  * It allows you to select maps, customize the colors of the game's Bombers, and even reorder controllers to different players.
  *
  * author: Luke Sullivan
- * Last Edit: 11/7/19
+ * Last Edit: 1/19/20
  */
 import JettersR.*;
 import JettersR.Audio.*;
@@ -208,7 +208,7 @@ public class MenuState extends GameState
             || (customMenu > 0 && !(key.left[0] || key.right[0]))
             ||(menuNum == battleSettingsMenu || menuNum == customPlayerMenu && customMenu == 0)
             )
-            {Game.am.add(AudioManager.audioPlayer(AudioManager.select0));}
+            {Game.am.add(AudioManager.select0);}
         }
 
         switch(menuNum)
@@ -527,7 +527,7 @@ public class MenuState extends GameState
         switch(menuNum)
         {
             case mainMenu:
-            Game.am.add(AudioManager.audioPlayer(AudioManager.confirm0));
+            Game.am.add(AudioManager.confirm0);
             switch(mainChoice)
             {
                 case 0://BATTLE MAPS
@@ -571,7 +571,7 @@ public class MenuState extends GameState
             break;
 
             case battleMapsMenu:
-            Game.am.add(AudioManager.audioPlayer(AudioManager.confirm1));
+            Game.am.add(AudioManager.confirm1);
             Game.am.stopOGG();
             switch(battleChoice)
             {
@@ -619,7 +619,7 @@ public class MenuState extends GameState
             case customPlayerMenu:
             if(!playerSelected)
             {
-                Game.am.add(AudioManager.audioPlayer(AudioManager.confirm0));
+                Game.am.add(AudioManager.confirm0);
                 playerSelected = true;
             }
             else
@@ -627,7 +627,7 @@ public class MenuState extends GameState
                 switch(customMenu)
                 {
                     case 0://Main
-                    Game.am.add(AudioManager.audioPlayer(AudioManager.confirm0));
+                    Game.am.add(AudioManager.confirm0);
                     switch(customChoice)
                     {
                         case 0://FACE
@@ -670,7 +670,7 @@ public class MenuState extends GameState
                         case 0://R
                         case 1://G
                         case 2://B
-                        Game.am.add(AudioManager.audioPlayer(AudioManager.confirm0));
+                        Game.am.add(AudioManager.confirm0);
                         if(!rgbSelected){rgbSelected = true;}
                         else{rgbSelected = false;}
                         break;
@@ -680,12 +680,12 @@ public class MenuState extends GameState
                     case controlsMenu:
                     if(controlChoice < controlOptions.length - 1)
                     {
-                        Game.am.add(AudioManager.audioPlayer(AudioManager.confirm0));
+                        Game.am.add(AudioManager.confirm0);
                         keyAssign = true;
                     }
                     else
                     {
-                        Game.am.add(AudioManager.audioPlayer(AudioManager.confirm0));
+                        Game.am.add(AudioManager.confirm0);
                         controllerAssign = true;
                     }
                     break;
@@ -698,7 +698,7 @@ public class MenuState extends GameState
     public void cancel()
     {
         if(keyAssign){return;}
-        Game.am.add(AudioManager.audioPlayer(AudioManager.cancel));
+        Game.am.add(AudioManager.cancel);
         if(rgbSelected){rgbSelected = false;}
         else if(controllerAssign)
         {

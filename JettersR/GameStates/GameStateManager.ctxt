@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=GameStateManager
-comment1.params=key
-comment1.target=GameStateManager(JettersR.Keyboard)
+comment1.params=key\ state
+comment1.target=GameStateManager(JettersR.Keyboard,\ int)
 comment10.params=roundNum
 comment10.target=void\ setRoundNum(int)
 comment11.params=
